@@ -1,0 +1,143 @@
+﻿<!doctype html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/echarts.min.js"></script>
+    <script src="js/china.js"></script>
+        <style>
+            body, p, h1, h2, h3, h4, h5, h6, ul, ol, dl, dt, dd {
+                margin: 0;
+                padding: 0;
+            }
+
+            ul, ol {
+                list-style: none;
+            }
+
+            a {
+                text-decoration: none;
+                color: black;
+            }
+            @font-face {
+                font-family: '欧体';
+                src: url("./tf/BENMO_Fengyue_Bold.otf");
+            }
+        </style>
+        <link rel="stylesheet" href="./CSS/main.css">
+</head>
+<body>
+<div id="container" style="height: 900px;width:1500px;margin:20px 0 0;"></div>
+<h1 style="font-family: 欧体;user-select: none">你好</h1>
+<a href="./provinceHTML/xinjiang.html" id="xinjiang" class="lianjie"></a>
+<a href="./tree-radial.html" id="neimeng" class="lianjie"></a>
+<a href="./tree-radial.html" id="gansu" class="lianjie"></a>
+<a href="./tree-radial.html" id="qinghai" class="lianjie"></a>
+<a href="./tree-radial.html" id="xizang" class="lianjie"></a>
+<a href="./tree-radial.html" id="ningxia" class="lianjie"></a>
+<a href="./tree-radial.html" id="sichuan" class="lianjie"></a>
+<a href="./tree-radial.html" id="yunnan" class="lianjie"></a>
+<a href="./tree-radial.html" id="shanxi" class="lianjie"></a>
+<a href="./tree-radial.html" id="chongqing" class="lianjie"></a>
+<a href="./tree-radial.html" id="guizhou" class="lianjie"></a>
+<a href="./tree-radial.html" id="henan" class="lianjie"></a>
+<a href="./tree-radial.html" id="hebei" class="lianjie"></a>
+<a href="./tree-radial.html" id="hubei" class="lianjie"></a>
+<a href="./tree-radial.html" id="Shanxi" class="lianjie"></a>
+<a href="./tree-radial.html" id="hunan" class="lianjie"></a>
+<a href="./tree-radial.html" id="guangxi" class="lianjie"></a>
+<a href="./tree-radial.html" id="heilongjiang" class="lianjie"></a>
+<a href="./tree-radial.html" id="jilin" class="lianjie"></a>
+<a href="./tree-radial.html" id="beijing" class="lianjie"></a>
+<a href="./tree-radial.html" id="tianjin" class="lianjie"></a>
+<a href="./tree-radial.html" id="shandong" class="lianjie"></a>
+<a href="./tree-radial.html" id="anhui" class="lianjie"></a>
+<a href="./tree-radial.html" id="jiangsu" class="lianjie"></a>
+<a href="./tree-radial.html" id="shanghai" class="lianjie"></a>
+<a href="./tree-radial.html" id="jiangxi" class="lianjie"></a>
+<a href="./tree-radial.html" id="zhejiang" class="lianjie"></a>
+<a href="./tree-radial.html" id="fujian" class="lianjie"></a>
+<a href="./tree-radial.html" id="taiwan" class="lianjie"></a>
+<a href="./tree-radial.html" id="guangdong" class="lianjie"></a>
+<a href="./tree-radial.html" id="aomen" class="lianjie"></a>
+<a href="./tree-radial.html" id="xianggang" class="lianjie"></a>
+<a href="./tree-radial.html" id="hainan" class="lianjie"></a>
+<a href="./tree-radial.html" id="liaoning" class="lianjie"></a>
+<script type="text/javascript">
+    // 全国省份列表
+    let dataMap = [{ name: '北京',value: 20057.34 }, { name: '天津', value: 20057.34 }, { name: '上海', value: 20057.34 }, { name: '重庆', value: 20057.34 }, { name: '河北', value: 20057.34 }, { name: '河南' , value: 20057.34}, { name: '云南' , value: 20057.34}, { name: '辽宁', value: 20057.34 }, { name: '黑龙江' , value: 20057.34}, { name: '湖南' , value: 20057.34}, { name: '安徽' , value: 20057.34}, { name: '山东' , value: 20057.34},
+    { name: '新疆' , value: 20057.34}, { name: '江苏' , value: 20057.34}, { name: '浙江' , value: 20057.34}, { name: '江西' , value: 20057.34}, { name: '湖北' , value: 20057.34}, { name: '广西' , value: 20057.34}, { name: '甘肃' , value: 20057.34}, { name: '山西' , value: 20057.34}, { name: '内蒙古', value: 20057.34 }, { name: '陕西' , value: 20057.34}, { name: '吉林', value: 20057.34 }, { name: '福建', value: 20057.34 }, { name: '贵州' , value: 20057.34},
+    { name: '广东' , value: 20057.34}, { name: '青海' , value: 20057.34}, { name: '西藏' , value: 20057.34}, { name: '四川' , value: 20057.34}, { name: '宁夏' , value: 20057.34}, { name: '海南' , value: 20057.34}, { name: '台湾', value: 20057.34 }, { name: '香港' , value: 20057.34}, { name: '澳门' , value: 20057.34}]
+    // 需要在页面上直接标记出来的城市
+    // var specialMap = ['浙江', '云南', '陕西'];
+    // // 对dataMap进行处理，使其可以直接在页面上展示
+    // for (var i = 0; i < specialMap.length; i++) {
+    //     for (var j = 0; j < dataMap.length; j++) {
+    //         if (specialMap[i] == dataMap[j].name) {
+    //             dataMap[j].selected = true;
+    //             break;
+    //         }
+    //
+    //     }
+    // }
+    // 绘制图表，准备数据
+    let option = {
+        tooltip: {
+            formatter: function (params) {
+                var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">这里可以写一些，想展示在页面上的别的信息</p>'
+                return info;
+            },
+            backgroundColor: "#ff7f50",//提示标签背景颜色
+            textStyle: { color: "#fff" } //提示标签字体颜色
+        },
+        visualMap: {
+            min: 800,
+            max: 50000,
+            text: ['High', 'Low'],
+            realtime: false,
+            calculable: true,
+            inRange: {
+                color: ['#313695', '#4575b4', '#74add1', '#abd9e9', '#e0f3f8', '#ffffbf', '#fee090', '#fdae61', '#f46d43', '#d73027', '#a50026'
+                ]
+            }
+        },
+        series: [
+            {
+                name: '中国',
+                type: 'map',
+                mapType: 'china',
+                selectedMode: 'multiple',
+                label: {
+                    normal: {
+                        show: true,//显示省份标签
+                        // textStyle:{color:"#c71585"}//省份标签字体颜色
+                    },
+                    emphasis: {
+                        show: true,//对应的鼠标悬浮效果
+                       // textStyle:{color:"#800080"}
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        borderWidth: .5,//区域边框宽度
+                        // borderColor: '#009fe8',//区域边框颜色
+                        // areaColor:"#ffefd5",//区域颜色
+                    },
+                    emphasis: {
+                        borderWidth: .5,
+                        borderColor: '#4b0082',
+                        areaColor: "#ffdead",
+                    }
+                },
+                data: dataMap
+            }
+        ]
+    };
+    //初始化echarts实例
+    let myChart = echarts.init(document.getElementById('container'));
+    //使用制定的配置项和数据显示图表
+    myChart.setOption(option);
+</script>
+</body>
+</html>

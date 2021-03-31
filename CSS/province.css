@@ -1,0 +1,30 @@
+body{
+    background: rgb(31,121,162);
+}
+
+.biao{
+    width: 700px;
+    height: 600px;
+    /*border: 1px solid red;*/
+}
+
+.big{
+    margin-top: 160px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#main1{
+
+}
+
+#main2{
+
+}
+
+#fan{
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+}
