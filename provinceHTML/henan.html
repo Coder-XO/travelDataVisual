@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0,  minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,viewport-fit=cover">
+    <!--定义文档视口,防止网页缩放-->
+    <meta name="keywords" content=""><!--网页的关键字信息-->
+    <meta name="description" content=""><!--网页的简介-->
+    <link rel="stylesheet" href="../CSS/province.css">
+    <title>新疆旅游数据</title>
+    <style>
+        body, p, h1, h2, h3, h4, h5, h6, ul, ol, dl, dt, dd {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+<div class="big">
+    <div id="main1" class='biao'></div>
+    <div id="main2" class='biao'></div>
+</div>
+<div id="fan">
+    <a href="../index.html">
+        <img src="../images/1.png" alt="" width="64" height="64">
+    </a>
+</div>
+<script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.0.2/echarts.min.js"></script>
+<script type="module">
+    import option1 from "../options/xinjiang1.js";
+    let myChart1 = echarts.init(document.getElementById('main1'));
+    myChart1.setOption(option1);
+
+    import option2 from "../options/xinjiang2.js";
+    let myChart2 = echarts.init(document.getElementById('main2'));
+    myChart2.setOption(option2);
+</script>
+</body>
+</html>

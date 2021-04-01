@@ -6,6 +6,8 @@
     <script src="js/jquery-1.11.1.min.js"></script>
     <script src="js/echarts.min.js"></script>
     <script src="js/china.js"></script>
+<!--        <script src="https://cdn.bootcdn.net/ajax/libs/layui/2.5.7/layui.all.min.js"></script>-->
+        <link rel="stylesheet" href="./layui/css/layui.css">
         <style>
             body, p, h1, h2, h3, h4, h5, h6, ul, ol, dl, dt, dd {
                 margin: 0;
@@ -28,47 +30,74 @@
         <link rel="stylesheet" href="./CSS/main.css">
 </head>
 <body>
-<div id="container" style="height: 900px;width:1500px;margin:20px 0 0;"></div>
-<h1 style="font-family: 欧体;user-select: none">你好</h1>
+<div id="container" style="height: 900px;width:1300px;margin:20px 0 0;"></div>
+<div id="text">
+    <span style="font-size: 46px;user-select: none;line-height:60px; font-family: 欧体">中国地区</span><br>
+    <span style="font-size: 46px;user-select: none;font-family: 欧体">旅游数据</span>
+</div>
+<!--省份链接-->
 <a href="./provinceHTML/xinjiang.html" id="xinjiang" class="lianjie"></a>
-<a href="./tree-radial.html" id="neimeng" class="lianjie"></a>
-<a href="./tree-radial.html" id="gansu" class="lianjie"></a>
-<a href="./tree-radial.html" id="qinghai" class="lianjie"></a>
-<a href="./tree-radial.html" id="xizang" class="lianjie"></a>
-<a href="./tree-radial.html" id="ningxia" class="lianjie"></a>
-<a href="./tree-radial.html" id="sichuan" class="lianjie"></a>
-<a href="./tree-radial.html" id="yunnan" class="lianjie"></a>
-<a href="./tree-radial.html" id="shanxi" class="lianjie"></a>
-<a href="./tree-radial.html" id="chongqing" class="lianjie"></a>
-<a href="./tree-radial.html" id="guizhou" class="lianjie"></a>
-<a href="./tree-radial.html" id="henan" class="lianjie"></a>
-<a href="./tree-radial.html" id="hebei" class="lianjie"></a>
-<a href="./tree-radial.html" id="hubei" class="lianjie"></a>
-<a href="./tree-radial.html" id="Shanxi" class="lianjie"></a>
-<a href="./tree-radial.html" id="hunan" class="lianjie"></a>
-<a href="./tree-radial.html" id="guangxi" class="lianjie"></a>
-<a href="./tree-radial.html" id="heilongjiang" class="lianjie"></a>
-<a href="./tree-radial.html" id="jilin" class="lianjie"></a>
-<a href="./tree-radial.html" id="beijing" class="lianjie"></a>
-<a href="./tree-radial.html" id="tianjin" class="lianjie"></a>
-<a href="./tree-radial.html" id="shandong" class="lianjie"></a>
-<a href="./tree-radial.html" id="anhui" class="lianjie"></a>
-<a href="./tree-radial.html" id="jiangsu" class="lianjie"></a>
-<a href="./tree-radial.html" id="shanghai" class="lianjie"></a>
-<a href="./tree-radial.html" id="jiangxi" class="lianjie"></a>
-<a href="./tree-radial.html" id="zhejiang" class="lianjie"></a>
-<a href="./tree-radial.html" id="fujian" class="lianjie"></a>
-<a href="./tree-radial.html" id="taiwan" class="lianjie"></a>
-<a href="./tree-radial.html" id="guangdong" class="lianjie"></a>
-<a href="./tree-radial.html" id="aomen" class="lianjie"></a>
-<a href="./tree-radial.html" id="xianggang" class="lianjie"></a>
-<a href="./tree-radial.html" id="hainan" class="lianjie"></a>
-<a href="./tree-radial.html" id="liaoning" class="lianjie"></a>
+<a href="./provinceHTML/neimeng.html" id="neimeng" class="lianjie"></a>
+<a href="./provinceHTML/gansu.html" id="gansu" class="lianjie"></a>
+<a href="./provinceHTML/qinghai.html" id="qinghai" class="lianjie"></a>
+<a href="./provinceHTML/xizang.html" id="xizang" class="lianjie"></a>
+<a href="./provinceHTML/ningxia.html" id="ningxia" class="lianjie"></a>
+<a href="./provinceHTML/sichuan.html" id="sichuan" class="lianjie"></a>
+<a href="./provinceHTML/yunnan.html" id="yunnan" class="lianjie"></a>
+<a href="./provinceHTML/shanxi.html" id="shanxi" class="lianjie"></a>
+<a href="./provinceHTML/chongqing.html" id="chongqing" class="lianjie"></a>
+<a href="./provinceHTML/guizhou.html" id="guizhou" class="lianjie"></a>
+<a href="./provinceHTML/henan.html" id="henan" class="lianjie"></a>
+<a href="./provinceHTML/hebei.html" id="hebei" class="lianjie"></a>
+<a href="./provinceHTML/hubei.html" id="hubei" class="lianjie"></a>
+<a href="./provinceHTML/Shanxixi.html" id="Shanxixi" class="lianjie"></a>
+<a href="./provinceHTML/hunan.html" id="hunan" class="lianjie"></a>
+<a href="./provinceHTML/guangxi.html" id="guangxi" class="lianjie"></a>
+<a href="./provinceHTML/heilongjiang.html" id="heilongjiang" class="lianjie"></a>
+<a href="./provinceHTML/jilin.html" id="jilin" class="lianjie"></a>
+<a href="./provinceHTML/beijing.html" id="beijing" class="lianjie"></a>
+<a href="./provinceHTML/tianjin.html" id="tianjin" class="lianjie"></a>
+<a href="./provinceHTML/shandong.html" id="shandong" class="lianjie"></a>
+<a href="./provinceHTML/anhui.html" id="anhui" class="lianjie"></a>
+<a href="./provinceHTML/jiangsu.html" id="jiangsu" class="lianjie"></a>
+<a href="./provinceHTML/shanghai.html" id="shanghai" class="lianjie"></a>
+<a href="./provinceHTML/jiangxi.html" id="jiangxi" class="lianjie"></a>
+<a href="./provinceHTML/zhejiang.html" id="zhejiang" class="lianjie"></a>
+<a href="./provinceHTML/fujian.html " id="fujian" class="lianjie"></a>
+<a href="./provinceHTML/taiwan.html" id="taiwan" class="lianjie"></a>
+<a href="./provinceHTML/guangdong.html" id="guangdong" class="lianjie"></a>
+<a href="./provinceHTML/aomen.html" id="aomen" class="lianjie"></a>
+<a href="./provinceHTML/xianggang.html" id="xianggang" class="lianjie"></a>
+<a href="./provinceHTML/hainan.html" id="hainan" class="lianjie"></a>
+<a href="./provinceHTML/liaoning.html" id="liaoning" class="lianjie"></a>
+<!--景区，人流量-->
+<div id="jingqu">
+    <button class="btnJing" id="ren">人流量</button>
+    <button class="btnJing" id="jing">景区</button>
+</div>
+<!--切换-->
+<div id="tab">
+    <ul id="tabUl">
+        <li><a href="">这里</a></li>
+        <li><a href="">这里</a></li>
+        <li><a href="">这里</a></li>
+        <li><a href="">这里</a></li>
+    </ul>
+</div>
+<a href="http://www.layui.com" class="layui-btn">一个可跳转的按钮</a>
 <script type="text/javascript">
     // 全国省份列表
     let dataMap = [{ name: '北京',value: 20057.34 }, { name: '天津', value: 20057.34 }, { name: '上海', value: 20057.34 }, { name: '重庆', value: 20057.34 }, { name: '河北', value: 20057.34 }, { name: '河南' , value: 20057.34}, { name: '云南' , value: 20057.34}, { name: '辽宁', value: 20057.34 }, { name: '黑龙江' , value: 20057.34}, { name: '湖南' , value: 20057.34}, { name: '安徽' , value: 20057.34}, { name: '山东' , value: 20057.34},
     { name: '新疆' , value: 20057.34}, { name: '江苏' , value: 20057.34}, { name: '浙江' , value: 20057.34}, { name: '江西' , value: 20057.34}, { name: '湖北' , value: 20057.34}, { name: '广西' , value: 20057.34}, { name: '甘肃' , value: 20057.34}, { name: '山西' , value: 20057.34}, { name: '内蒙古', value: 20057.34 }, { name: '陕西' , value: 20057.34}, { name: '吉林', value: 20057.34 }, { name: '福建', value: 20057.34 }, { name: '贵州' , value: 20057.34},
     { name: '广东' , value: 20057.34}, { name: '青海' , value: 20057.34}, { name: '西藏' , value: 20057.34}, { name: '四川' , value: 20057.34}, { name: '宁夏' , value: 20057.34}, { name: '海南' , value: 20057.34}, { name: '台湾', value: 20057.34 }, { name: '香港' , value: 20057.34}, { name: '澳门' , value: 20057.34}]
+
+// 景区数量
+    let dataMap2 = [{ name: '北京',value: 10 }, { name: '天津', value: 10 }, { name: '上海', value: 10}, { name: '重庆', value: 10 }, { name: '河北', value: 10 }, { name: '河南' , value: 10}, { name: '云南' , value: 10}, { name: '辽宁', value: 10 }, { name: '黑龙江' , value: 10}, { name: '湖南' , value: 10}, { name: '安徽' , value: 10}, { name: '山东' , value: 10},
+        { name: '新疆' , value: 10}, { name: '江苏' , value: 10}, { name: '浙江' , value:10}, { name: '江西' , value: 10}, { name: '湖北' , value: 10}, { name: '广西' , value: 10}, { name: '甘肃' , value: 10}, { name: '山西' , value: 10}, { name: '内蒙古', value: 10 }, { name: '陕西' , value: 10}, { name: '吉林', value: 10}, { name: '福建', value: 10 }, { name: '贵州' , value: 10},
+        { name: '广东' , value: 10}, { name: '青海' , value: 10}, { name: '西藏' , value: 10}, { name: '四川' , value: 10}, { name: '宁夏' , value: 10}, { name: '海南' , value: 20}, { name: '台湾', value:10 }, { name: '香港' , value: 10}, { name: '澳门' , value: 10}]
+
+
+
     // 需要在页面上直接标记出来的城市
     // var specialMap = ['浙江', '云南', '陕西'];
     // // 对dataMap进行处理，使其可以直接在页面上展示
@@ -78,10 +107,11 @@
     //             dataMap[j].selected = true;
     //             break;
     //         }
-    //
     //     }
     // }
     // 绘制图表，准备数据
+
+
     let option = {
         tooltip: {
             formatter: function (params) {
@@ -138,6 +168,42 @@
     let myChart = echarts.init(document.getElementById('container'));
     //使用制定的配置项和数据显示图表
     myChart.setOption(option);
+
+
+    // 按钮切换数据显示
+    let jing = document.getElementById("jing")
+    jing.onclick = function (){
+        option.series[0].data = dataMap2
+        option.visualMap.min = 0
+        option.visualMap.max = 50
+       setTimeout(function (){
+           myChart.setOption(option);
+           myChart.setOption(option);
+       },0)
+    }
+    let ren = document.getElementById("ren")
+    ren.onclick = function (){
+        option.series[0].data = dataMap
+        option.visualMap.min = 800
+        option.visualMap.max = 50000
+        setTimeout(function (){
+            myChart.setOption(option);
+            myChart.setOption(option);
+        },0)
+    }
+
+
+    var resizeWorldMapContainer = function () {
+
+        myChart.style.width =window.innerWidth +'px';
+        myChart.style.height = window.innerHeight-200 +'px';
+    };
+
+    window.onresize = function(){
+        //用于使chart自适应高度和宽度
+        myChart.reize();
+        resizeWorldMapContainer();
+    }
 </script>
 </body>
 </html>

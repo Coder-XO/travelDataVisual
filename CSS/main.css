@@ -1,3 +1,27 @@
+html{
+    width: 100vw;
+    height: 100vh;
+}
+
+@media screen and (max-width: 1440px) {
+    .add {
+        width: 260px;
+    }
+}
+
+/* 屏幕等于1440px */
+@media screen and (max-width: 1440px) and (min-width: 1440px) {
+    .add {
+        width: 348px;
+    }
+}
+
+/* 屏幕大于1440px */
+@media screen and (min-width:1441px) {
+    .add {
+        width: 348px;
+    }
+}
 
 body{
     background: rgb(31,121,162);
@@ -11,7 +35,7 @@ body{
 }
 
 .lianjie{
-    cursor: alias;
+    cursor: zoom-in;
     /* border: 1px solid red; */
 }
 
@@ -155,7 +179,7 @@ body{
     z-index: 10;
 }
 
-#Shanxi{
+#Shanxixi{
     width: 30px;
     height: 30px;
     position: absolute;
@@ -335,6 +359,62 @@ body{
     z-index: 10;
 }
 
+#text{
+    position:absolute;
+    top: 100px;
+    left: 100px;
+}
+
+#jingqu{
+    position: absolute;
+    right: 50px;
+    bottom: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.btnJing{
+    display: block;
+    width: 80px;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+}
+.btnJing:hover{
+    background: black;
+    color: white;
+}
 
 
+#tab{
+    position: absolute;
+    top: 100px;
+    left: 1460px;
+    /*background: gray;*/
+    border-radius: 10px;
+}
+#tabUl{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#tabUl li{
+    width: 100px;
+    height: 36px;
+    /*border: 1px solid red;*/
+    text-align: center;
+    line-height: 36px;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 28px;
+    font-family: 欧体;
+}
+
+#tabUl li:hover a{
+    color: white;
+
+}
 
