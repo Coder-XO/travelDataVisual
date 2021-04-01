@@ -30,7 +30,7 @@
         <link rel="stylesheet" href="./CSS/main.css">
 </head>
 <body>
-<div id="container" style="height: 900px;width:1300px;margin:20px 0 0;"></div>
+<div id="container" style="height: 900px;width:1500px;margin:20px 0 0;"></div>
 <div id="text">
     <span style="font-size: 46px;user-select: none;line-height:60px; font-family: 欧体">中国地区</span><br>
     <span style="font-size: 46px;user-select: none;font-family: 欧体">旅游数据</span>
@@ -163,6 +163,9 @@
             }
         ]
     };
+
+
+
     //初始化echarts实例
     let myChart = echarts.init(document.getElementById('container'));
     //使用制定的配置项和数据显示图表
@@ -191,18 +194,67 @@
         },0)
     }
 
+// 网上找的
 
-    var resizeWorldMapContainer = function () {
+    myChart.on('click', function (param){
+        var selected = param.name;
+        if (selected) {
+            switch(selected){
+                case '西藏':
+                    location.href = "./provinceHTML/xizang.html";
+                    break;
+                case '新疆':
+                    location.href = "{:U('Goods/index_city',array('id'=>14))}";
+                    break;
+                case '朝阳市':
+                    location.href = "{:U('Goods/index_city',array('id'=>13))}";
+                    break;
+                case '锦州市':
+                    location.href = "{:U('Goods/index_city',array('id'=>12))}";
+                    break;
+                case '阜新市':
+                    location.href ="{:U('Goods/index_city',array('id'=>11))}";
+                    break;
+                case '盘锦市':
+                    location.href = "{:U('Goods/index_city',array('id'=>10))}";
+                    break;
+                case '大连市':
+                    location.href = "{:U('Goods/index_city',array('id'=>9))}";
+                    break;
+                case '营口市':
+                    location.href = "{:U('Goods/index_city',array('id'=>8))}";
+                    break;
+                case '鞍山市':
+                    location.href = "{:U('Goods/index_city',array('id'=>7))}";
+                    break;
+                case '丹东市':
+                    location.href = "{:U('Goods/index_city',array('id'=>6))}";
+                    break;
+                case '辽阳市':
+                    location.href = "{:U('Goods/index_city',array('id'=>5))}";
+                    break;
+                case '本溪市':
+                    location.href = "{:U('Goods/index_city',array('id'=>4))}";
+                    break;
+                case '抚顺市':
+                    location.href ="{:U('Goods/index_city',array('id'=>2))}";
+                    break;
+                case '铁岭市':
+                    location.href = "{:U('Goods/index_city',array('id'=>1))}";
+                    break;
+                default:
+                    break;
+            }
 
-        myChart.style.width =window.innerWidth +'px';
-        myChart.style.height = window.innerHeight-200 +'px';
-    };
+        }
+    });
 
-    window.onresize = function(){
-        //用于使chart自适应高度和宽度
-        myChart.reize();
-        resizeWorldMapContainer();
+
+    window.onresize = function () {
+        myChart.resize();
     }
+
+
 </script>
 </body>
 </html>
