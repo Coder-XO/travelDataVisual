@@ -374,8 +374,8 @@ body{
 
 #tab{
     position: absolute;
-    top: 100px;
-    left: 1200px;
+    top: 60px;
+    left: 1300px;
     /*background: gray;*/
     border-radius: 10px;
     z-index: 13;
@@ -388,7 +388,7 @@ body{
 }
 
 #tabUl li{
-    width: 100px;
+    width: 160px;
     height: 36px;
     /*border: 1px solid red;*/
     text-align: center;

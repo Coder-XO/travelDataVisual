@@ -80,10 +80,9 @@
 </div>
 <div id="tab">
     <ul id="tabUl">
-        <li><a href="">这里</a></li>
-        <li><a href="">这里</a></li>
-        <li><a href="">这里</a></li>
-        <li><a href="">这里</a></li>
+        <li><a href="" style="text-align: right">首页</a></li>
+        <li><a href="./provinceHTML/dataBase.html">数据库</a></li>
+        <li><a href="">景区博物馆</a></li>
     </ul>
 </div>
 <!--星空动态背景-->
@@ -200,7 +199,7 @@
 // 网上找的
 
     myChart.on('click', function (param){
-        var selected = param.name;
+        let selected = param.name;
         if (selected) {
             switch(selected){
                 case '西藏':

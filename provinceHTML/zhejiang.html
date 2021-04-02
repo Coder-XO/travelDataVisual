@@ -8,6 +8,7 @@
     <meta name="keywords" content=""><!--网页的关键字信息-->
     <meta name="description" content=""><!--网页的简介-->
     <link rel="stylesheet" href="../CSS/province.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/app.css" />
     <title>新疆旅游数据</title>
     <style>
         body, p, h1, h2, h3, h4, h5, h6, ul, ol, dl, dt, dd {
@@ -35,6 +36,24 @@
         <img src="../images/1.png" alt="" width="64" height="64">
     </a>
 </div>
+
+<!--下拉-->
+
+<div id="xiala" style="width: 42px;height: 42px;position: absolute;left: 50%;top: 820px;margin-left: -32px;cursor: pointer">
+    <img src="../images/2.png" alt="" width="42" height="42">
+</div>
+
+<!--树图-->
+
+<div id="container">
+    <div class="chart-div" id="treeChart">
+        <div class="chart-loader"><div class="loader"></div></div>
+    </div>
+</div>
+
+<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+<!--<script type="text/javascript" src="../js/echarts.min.js"></script>-->
+<script type="text/javascript" src="../js/echarts-theme-shine.js"></script>
 <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.0.2/echarts.min.js"></script>
 <script type="module">
     import option1 from "../options/xinjiang1.js";
@@ -44,6 +63,439 @@
     import option2 from "../options/xinjiang2.js";
     let myChart2 = echarts.init(document.getElementById('main2'));
     myChart2.setOption(option2);
+
+
+
+
+
+
+
+    // 树图部分
+    $(function() {
+        //初始化报表对象并指定其风格
+        const treeChart = echarts.init(document.getElementById("treeChart"), 'shine');
+        //虚拟数据
+        const treeData1 = {
+            name: '董事会结构',
+            symbolSize: 10,
+            itemStyle: {color: '#d4237a'},
+            label: {fontSize: 14},
+            children: [
+                {
+                    name: '董事会独立性',
+                    symbolSize: 8,
+                    itemStyle: {color: '#d4237a'},
+                    // children: [
+                    // 	{name: '董事会总人数', itemStyle: {color: '#d4237a'}},
+                    // 	{name: '行业内董事会规模人数均值', itemStyle: {color: '#d4237a'}},
+                    // 	{name: '独立董事人数', itemStyle: {color: '#d4237a'}},
+                    // 	{name: '执行董事人数', itemStyle: {color: '#d4237a'}},
+                    // 	{name: '董事长是否兼任其他高管', itemStyle: {color: '#d4237a'}},
+                    // 	{name: '董事长是否来自大股东', itemStyle: {color: '#d4237a'}},
+                    // 	{name: '兼任经理层的董事人数', itemStyle: {color: '#d4237a'}},
+                    // 	{name: '是否含有党员董事', itemStyle: {color: '#d4237a'}}
+                    // ]
+                },
+                {
+                    name: '董事会专业性',
+                    symbolSize: 8,
+                    itemStyle: {color: '#d4237a'},
+                    // children: [
+                    // 	{name: '委员会主任是否独董担任', itemStyle: {color: '#d4237a'}},
+                    // 	{name: '专业独立董事人数', itemStyle: {color: '#d4237a'}},
+                    // 	{name: '董事变更时间', itemStyle: {color: '#d4237a'}},
+                    // 	{name: '战略决策委员会', itemStyle: {color: '#d4237a'}},
+                    // 	{name: '提名委员会', itemStyle: {color: '#d4237a'}},
+                    // 	{name: '薪酬委员会', itemStyle: {color: '#d4237a'}},
+                    // 	{name: '审计委员会', itemStyle: {color: '#d4237a'}}
+                    // ]
+                }
+            ]
+        };
+        const treeData2 = {
+            name: '董事会行为',
+            symbolSize: 10,
+            itemStyle: {color: '#e6b600'},
+            label: {fontSize: 14},
+            children: [
+                {
+                    name: '专门委员会会议',
+                    symbolSize: 8,
+                    itemStyle: {color: '#e6b600'},
+                    // children: [
+                    // 	{name: '召开次数', itemStyle: {color: '#e6b600'}},
+                    // 	{name: '独董出席比率', itemStyle: {color: '#e6b600'}},
+                    // 	{name: '提交董事会议题数', itemStyle: {color: '#e6b600'}},
+                    // 	{name: '董事会采纳议题数', itemStyle: {color: '#e6b600'}}
+                    // ]
+                },
+                {
+                    name: '董事会会议',
+                    symbolSize: 8,
+                    itemStyle: {color: '#e6b600'},
+                    // children: [
+                    // 	{name: '召开次数', itemStyle: {color: '#e6b600'}},
+                    // 	{name: '通讯会议次数', itemStyle: {color: '#e6b600'}},
+                    // 	{name: '会议议题数', itemStyle: {color: '#e6b600'}},
+                    // 	{name: '表决反对票数', itemStyle: {color: '#e6b600'}},
+                    // 	{name: '独董出席比率', itemStyle: {color: '#e6b600'}},
+                    // 	{name: '独董独立发表反对意见数', itemStyle: {color: '#e6b600'}}
+                    // ]
+                },
+                {
+                    name: '股东大会',
+                    symbolSize: 8,
+                    itemStyle: {color: '#e6b600'},
+                    // children: [
+                    // 	{name: '股东大会的董事出席率', itemStyle: {color: '#e6b600'}},
+                    // 	{name: '股东大会是否采用累积投票制', itemStyle: {color: '#e6b600'}},
+                    // 	{name: '股东大会决议事项投票率', itemStyle: {color: '#e6b600'}},
+                    // 	{name: '董事会决议事项反对率', itemStyle: {color: '#e6b600'}}
+                    // ]
+                },
+                {
+                    name: '与党委的关系',
+                    symbolSize: 8,
+                    itemStyle: {color: '#e6b600'},
+                    // children: [
+                    // 	{name: '党建条款是否进入公司章程', itemStyle: {color: '#e6b600'}},
+                    // 	{name: '党委与董事会成员是否双向进入、交叉任职', itemStyle: {color: '#e6b600'}},
+                    // 	{name: '决策程序上是否党委会前置', itemStyle: {color: '#e6b600'}},
+                    // 	{name: '是否披露党委会等党组织参与治理情况', itemStyle: {color: '#e6b600'}}
+                    // ]
+                }
+            ]
+        };
+        const treeData3 = {
+            name: '社会责任',
+            symbolSize: 10,
+            itemStyle: {color: '#005eaa'},
+            label: {fontSize: 14},
+            children: [
+                {
+                    name: '社会',
+                    symbolSize: 8,
+                    itemStyle: {color: '#005eaa'},
+                    // children: [
+                    // 	{name: '每股社会责任值', itemStyle: {color: '#005eaa'}},
+                    // 	{name: '纳税总额', itemStyle: {color: '#005eaa'}},
+                    // 	{name: '就业人数', itemStyle: {color: '#005eaa'}},
+                    // 	{name: '环保、扶贫和慈善投入', itemStyle: {color: '#005eaa'}}
+                    // ]
+                },
+                {
+                    name: '股东',
+                    symbolSize: 8,
+                    itemStyle: {color: '#005eaa'},
+                    // children: [
+                    // 	{name: '净资产收益率', itemStyle: {color: '#005eaa'}},
+                    // 	{name: '市值增值率', itemStyle: {color: '#005eaa'}},
+                    // 	{name: '股息率', itemStyle: {color: '#005eaa'}}
+                    // ]
+                },
+                {
+                    name: '员工',
+                    symbolSize: 8,
+                    itemStyle: {color: '#005eaa'},
+                    // children: [
+                    // 	{name: '员工收入增幅', itemStyle: {color: '#005eaa'}},
+                    // 	{name: '公司人均薪酬', itemStyle: {color: '#005eaa'}},
+                    // 	{name: '行业平均人均薪酬', itemStyle: {color: '#005eaa'}},
+                    // 	{name: '是否员工持股', itemStyle: {color: '#005eaa'}}
+                    // ]
+                },
+                {
+                    name: '客户',
+                    symbolSize: 8,
+                    itemStyle: {color: '#005eaa'},
+                    // children: [
+                    // 	{name: '研发占比', itemStyle: {color: '#005eaa'}},
+                    // 	{name: '市场份额', itemStyle: {color: '#005eaa'}},
+                    // 	{name: '毛利率', itemStyle: {color: '#005eaa'}}
+                    // ]
+                },
+                {
+                    name: '外部评价',
+                    symbolSize: 8,
+                    itemStyle: {color: '#005eaa'},
+                    // children: [
+                    // 	{name: '是否入选上市公司“金圆桌奖”', itemStyle: {color: '#005eaa'}},
+                    // 	{name: '是否进入明晟指数', itemStyle: {color: '#005eaa'}},
+                    // 	{name: '是否上证180治理', itemStyle: {color: '#005eaa'}},
+                    // 	{name: '负面新闻报道转载数', itemStyle: {color: '#005eaa'}}
+                    // ]
+                }
+            ]
+        };
+        const treeData4 = {
+            name: '信息披露',
+            symbolSize: 10,
+            itemStyle: {color: '#339ca8'},
+            label: {fontSize: 14},
+            children: [
+                {
+                    name: '披露日期',
+                    symbolSize: 8,
+                    itemStyle: {color: '#339ca8'},
+                    // children: [
+                    // 	{name: '年报披露日期距1月1日的天数', itemStyle: {color: '#339ca8'}},
+                    // 	{name: '半年报披露日期距7月1日的天数', itemStyle: {color: '#339ca8'}},
+                    // 	{name: '一季报披露日期距4月1日的天数', itemStyle: {color: '#339ca8'}},
+                    // 	{name: '三季报披露日期距10月1日的天数', itemStyle: {color: '#339ca8'}},
+                    // ]
+                },
+                {
+                    name: '披露一致性',
+                    symbolSize: 8,
+                    itemStyle: {color: '#339ca8'},
+                    // children: [
+                    // 	{name: '信息披露、定期报告披露后的更正数量', itemStyle: {color: '#339ca8'}},
+                    // 	{name: '业绩预告与正式公告是否一致', itemStyle: {color: '#339ca8'}}
+                    // ]
+                },
+                {
+                    name: '内部控制',
+                    symbolSize: 8,
+                    itemStyle: {color: '#339ca8'},
+                    // children: [
+                    // 	{name: '内部控制文件累计数量（个）', itemStyle: {color: '#339ca8'}},
+                    // 	{name: '是否披露内部控制评价', itemStyle: {color: '#339ca8'}},
+                    // 	{name: '是否披露内部控制缺陷', itemStyle: {color: '#339ca8'}},
+                    // 	{name: '是否有效实施内部控制缺陷整改', itemStyle: {color: '#339ca8'}}
+                    // ]
+                },
+                {
+                    name: '当初审计报告意见',
+                    itemStyle: {color: '#339ca8'},
+                    symbolSize: 8,
+                    // children: [
+                    // 	{name: '标准无保留', itemStyle: {color: '#339ca8'}},
+                    // 	{name: '拒绝发表意见', itemStyle: {color: '#339ca8'}},
+                    // 	{name: '否定意见', itemStyle: {color: '#339ca8'}}
+                    // ]
+                }
+            ]
+        };
+        const treeData5 = {
+            name: '董事薪酬、激励及约束',
+            symbolSize: 10,
+            itemStyle: {color: '#7760f6'},
+            label: {fontSize: 14},
+            children: [
+                {
+                    name: '非独立董事薪酬与激励',
+                    symbolSize: 8,
+                    itemStyle: {color: '#7760f6'},
+                    // children: [
+                    // 	{name: '董事本年薪酬', itemStyle: {color: '#7760f6'}},
+                    // 	{name: '行业董事平均薪酬', itemStyle: {color: '#7760f6'}},
+                    // 	{name: '董事持股人数', itemStyle: {color: '#7760f6'}},
+                    // 	{name: '平均持股比例', itemStyle: {color: '#7760f6'}},
+                    // 	{name: '董事增持次数', itemStyle: {color: '#7760f6'}},
+                    // 	{name: '董事减持次数', itemStyle: {color: '#7760f6'}}
+                    // ]
+                },
+                {
+                    name: '独立董事津贴',
+                    symbolSize: 8,
+                    itemStyle: {color: '#7760f6'},
+                    // children: [
+                    // 	{name: '独立董事本年津贴', itemStyle: {color: '#7760f6'}},
+                    // 	{name: '行业独立董事平均津贴', itemStyle: {color: '#7760f6'}}
+                    // ]
+                },
+                {
+                    name: '董事责任',
+                    symbolSize: 8,
+                    itemStyle: {color: '#7760f6'},
+                    // children: [
+                    // 	{name: '董事是否遭批评、谴责、禁入等处罚', itemStyle: {color: '#7760f6'}},
+                    // 	{name: '诉讼金额', itemStyle: {color: '#7760f6'}},
+                    // 	{name: '赔偿金额', itemStyle: {color: '#7760f6'}}
+                    // ]
+                }
+            ]
+        };
+        const treeData = {
+            name: '董事会指标体系',
+            symbolSize: 12,
+            label: {fontSize: 16},
+            children: [
+                treeData1,
+                treeData2,
+                treeData3,
+                treeData4,
+                treeData5
+            ]
+        };
+        const treeChartOpt = {
+            title: {
+                text: "董事会指标体系层级结构",
+                // subtext: "纯属虚构",
+                textStyle: {
+                    color: "#fff"
+                },
+                subtextStyle: {
+                    fontSize: 12
+                },
+                left: 15,
+                top: 15
+            },
+            series: [
+                {
+                    name: '董事会指标体系',
+                    type: 'tree',
+                    left: '5%',
+                    right: '20%',
+                    top: '1%',
+                    bottom: '1%',
+                    orient: 'TB', //方向
+                    initialTreeDepth: 0, //深度
+                    symbol: 'circle',
+                    itemStyle: {
+                        color: '#ab2042',
+                        borderColor: '#9aa8d4'
+                    },
+                    lineStyle: {
+                        width: 1,
+                        curveness: .9,
+                        color:'skyblue'
+                    },
+                    label: {
+                        color: '#9aa8d4',
+                        position: 'bottom'
+                    },
+                    leaves: {
+                        label: {
+                            position: 'right'
+                        }
+                    },
+                    data: [treeData]
+                }
+            ]
+        };
+
+
+        //浏览器窗口发生变化时，重置报表大小
+        $(window).resize(function() {
+            treeChart.resize();
+        });
+
+        treeChart.on('click', function (param){
+            let selected = param.name;
+            if (selected) {
+                switch(selected){
+                    case '董事会总人数':
+                        // location.href = "./provinceHTML/xizang.html";
+                        console.log(23)
+                        break;
+                    case '北京':
+                        location.href = "./provinceHTML/beijing.html";
+                        break;
+                    case '天津':
+                        location.href = "./provinceHTML/tianjin.html";
+                        break;
+                    case '上海':
+                        location.href = "./provinceHTML/shanghai.html";
+                        break;
+                    case '重庆':
+                        location.href ="./provinceHTML/chongqing.html";
+                        break;
+                    case '河北':
+                        location.href = "./provinceHTML/hebei.html";
+                        break;
+                    case '河南':
+                        location.href = "./provinceHTML/henan.html";
+                        break;
+                    case '云南':
+                        location.href = "./provinceHTML/yunnan.html";
+                        break;
+                    case '辽宁':
+                        location.href = "./provinceHTML/liaoning.html";
+                        break;
+                    case '黑龙江':
+                        location.href = "./provinceHTML/heilongjiang.html";
+                        break;
+                    case '湖南':
+                        location.href = "./provinceHTML/hunan.html";
+                        break;
+                    case '安徽':
+                        location.href = "./provinceHTML/anhui.html";
+                        break;
+                    case '山东':
+                        location.href ="./provinceHTML/shandong.html";
+                        break;
+                    case '新疆':
+                        location.href = "./provinceHTML/xinjiang.html";
+                        break;
+                    case '江苏':
+                        location.href = "./provinceHTML/jiangsu.html";
+                        break;
+                    case '浙江':
+                        location.href = "./provinceHTML/zhejiang.html";
+                        break;
+                    case '江西':
+                        location.href = "./provinceHTML/jiangxi.html";
+                        break;
+                    case '湖北':
+                        location.href = "./provinceHTML/hubei.html";
+                        break;
+                    case '广西':
+                        location.href = "./provinceHTML/guangxi.html";
+                        break;
+                    case '甘肃':
+                        location.href = "./provinceHTML/gansu.html";
+                        break;
+                    case '山西':
+                        location.href = "./provinceHTML/shanxi.html";
+                        break;
+                    case '内蒙古':
+                        location.href = "./provinceHTML/neimeng.html";
+                        break;
+                    case '陕西':
+                        location.href = "./provinceHTML/Shanxixi.html";
+                        break;
+                    case '吉林':
+                        location.href = "./provinceHTML/jilin.html";
+                        break;
+                    case '福建':
+                        location.href = "./provinceHTML/fujian.html";
+                        break;
+                    case '贵州':
+                        location.href = "./provinceHTML/guizhou.html";
+                        break;
+                    case '广东':
+                        location.href = "./provinceHTML/guangdong.html";
+                        break;
+                    case '青海':
+                        location.href = "./provinceHTML/qinghai.html";
+                        break;
+                    case '四川':
+                        location.href = "./provinceHTML/sichuan.html";
+                        break;
+                    case '宁夏':
+                        location.href = "./provinceHTML/ningxia.html";
+                        break;
+                    case '海南':
+                        location.href = "./provinceHTML/hainan.html";
+                        break;
+                    case '台湾':
+                        location.href = "./provinceHTML/taiwan.html";
+                        break;
+                    case '香港':
+                        location.href = "./provinceHTML/xianggang.html";
+                        break;
+                    case '澳门':
+                        location.href = "./provinceHTML/aomen.html";
+                        break;
+                    default:
+                        break;
+                }
+
+            }
+        });
+
+    });
 </script>
 </body>
 </html>
