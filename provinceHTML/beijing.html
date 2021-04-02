@@ -51,6 +51,11 @@
     </div>
 </div>
 
+<!--上拉-->
+<div id="xiala3" style="width: 42px;height: 42px;position: absolute;left: 50%;top: 1700px;margin-left: -32px;cursor: pointer">
+    <img src="../images/3.png" alt="" width="62" height="22">
+</div>
+
 <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
 <!--<script type="text/javascript" src="../js/echarts.min.js"></script>-->
 <script type="text/javascript" src="../js/echarts-theme-shine.js"></script>
@@ -70,7 +75,9 @@
         window.scrollTo(0,9999)
     }
 
-
+    xiala3.onclick = function (){
+        window.scrollTo(0,0)
+    }
 
     // 树图部分
     $(function() {

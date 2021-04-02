@@ -26,10 +26,12 @@
         }
     </style>
 </head>
-<body>
-<div class="big">
-    <div id="main1" class='biao'></div>
-    <div id="main2" class='biao'></div>
+<body style="height: 2620px;">
+<div class="big1" style="margin-top: 160px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;">
+    <div id="main1" class='biao' style="width: 1200px;height: 640px"></div>
 </div>
 <div id="fan">
     <a href="../index.html">
@@ -42,10 +44,29 @@
 <div id="xiala" style="width: 42px;height: 42px;position: absolute;left: 50%;top: 820px;margin-left: -32px;cursor: pointer">
     <img src="../images/2.png" alt="" width="42" height="42">
 </div>
+<div id="xiala2" style="width: 42px;height: 42px;position: absolute;left: 50%;top: 1840px;margin-left: -32px;cursor: pointer">
+    <img src="../images/2.png" alt="" width="42" height="42">
+</div>
 
-<!--树图-->
 
-<iframe id="container" src="../iframe/dataBottom.html" frameborder="0"></iframe>
+<!--上拉-->
+<div id="xiala3" style="width: 42px;height: 42px;position: absolute;left: 50%;top: 2710px;margin-left: -32px;cursor: pointer">
+    <img src="../images/3.png" alt="" width="62" height="22">
+</div>
+
+
+
+<div id="big2" style="margin-top: 160px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;">
+    <div id="main2" class='biao' style="width: 1200px;height: 640px"></div>
+</div>
+
+
+<!-- 动态柱状图 -->
+
+<iframe id="container2" src="../iframe/dataBottom.html" frameborder="0"></iframe>
 
 <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
 <!--<script type="text/javascript" src="../js/echarts.min.js"></script>-->
@@ -61,12 +82,16 @@
     myChart2.setOption(option2);
 
 
-
+// 下拉事件
     xiala.onclick = function (){
-        window.scrollTo(0,9999)
+        window.scrollTo(0,1000)
     }
-
-
+    xiala2.onclick = function (){
+        window.scrollTo(0,2000)
+    }
+    xiala3.onclick = function (){
+        window.scrollTo(0,0)
+    }
 
 
 

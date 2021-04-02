@@ -26,6 +26,13 @@ body {
 	font-size:32px;
 	font-weight:400;color:#fff;
 }
+
+#container2{
+	margin-left: 200px;
+	width:1500px;
+	height:700px;
+}
+
 #container {
 	/*position:absolute;top:1100px;*/
 	/*left: 20px;*/
