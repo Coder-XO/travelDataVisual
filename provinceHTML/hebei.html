@@ -44,6 +44,11 @@
     import option2 from "../options/xinjiang2.js";
     let myChart2 = echarts.init(document.getElementById('main2'));
     myChart2.setOption(option2);
+
+    window.onload = function (){
+        body.style.width = document.body.clientWidth + "px"
+        body.style.height = document.body.clientHeight + "px"
+    }
 </script>
 </body>
 </html>
