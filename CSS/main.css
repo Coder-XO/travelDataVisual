@@ -23,9 +23,11 @@ html{
 }
 
 body{
-    background: rgb(31,121,162);
-    width: 100%;
+    background: black;
     height: 100%;
+    background-image: url(../images/Otr0s.jpg);
+    background-size: contain;
+    overflow: hidden;
 }
 #container{
     position: absolute;
@@ -362,6 +364,8 @@ body{
     position:absolute;
     top: 100px;
     left: 100px;
+    z-index: 3;
+    color: white;
 }
 
 #jingqu{
@@ -392,6 +396,8 @@ body{
     left: 1460px;
     /*background: gray;*/
     border-radius: 10px;
+    z-index: 3;
+    color: white;
 }
 #tabUl{
     display: flex;
@@ -410,6 +416,10 @@ body{
     border-radius: 6px;
     font-size: 28px;
     font-family: 欧体;
+    color: white;
+}
+#tabUl li a{
+    color: white;
 }
 
 #tabUl li:hover a{
