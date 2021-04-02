@@ -2,26 +2,6 @@ html{
     height: 100%;
 }
 
-@media screen and (max-width: 1440px) {
-    .add {
-        width: 260px;
-    }
-}
-
-/* 屏幕等于1440px */
-@media screen and (max-width: 1440px) and (min-width: 1440px) {
-    .add {
-        width: 348px;
-    }
-}
-
-/* 屏幕大于1440px */
-@media screen and (min-width:1441px) {
-    .add {
-        width: 348px;
-    }
-}
-
 body{
     background: skyblue;
     height: 100%;
