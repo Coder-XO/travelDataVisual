@@ -23,11 +23,11 @@ html{
 }
 
 body{
-    background: black;
+    background: skyblue;
     height: 100%;
-    background-image: url(../images/Otr0s.jpg);
-    background-size: contain;
-    overflow: hidden;
+    /*background-image: url(../images/Otr0s.jpg);*/
+    /*background-size: contain;*/
+    /*overflow: hidden;*/
 }
 #container{
     position: absolute;

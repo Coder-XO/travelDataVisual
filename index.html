@@ -30,7 +30,7 @@
             }
         </style>
         <link rel="stylesheet" href="./CSS/main.css">
-        <link rel="stylesheet" href="./CSS/style.css">
+<!--        <link rel="stylesheet" href="./CSS/style.css">-->
 </head>
 <body>
 <div id="container" style="height: 800px;width:1400px;"></div>
@@ -87,12 +87,6 @@
     </ul>
 </div>
 <!--星空动态背景-->
-<main>
-    <div class="stars"></div>
-</main>
-<main>
-    <div class="stars"></div>
-</main>
 <script type="text/javascript">
     // 全国省份列表
     let dataMap = [{ name: '北京',value: 20057.34 }, { name: '天津', value: 20057.34 }, { name: '上海', value: 20057.34 }, { name: '重庆', value: 20057.34 }, { name: '河北', value: 20057.34 }, { name: '河南' , value: 20057.34}, { name: '云南' , value: 20057.34}, { name: '辽宁', value: 20057.34 }, { name: '黑龙江' , value: 20057.34}, { name: '湖南' , value: 20057.34}, { name: '安徽' , value: 20057.34}, { name: '山东' , value: 20057.34},
@@ -123,7 +117,7 @@
     let option = {
         tooltip: {
             formatter: function (params) {
-                var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">这里可以写一些，想展示在页面上的别的信息</p>'
+                var info = '<p style="font-size:18px">' + params.name + '</p><p style="font-size:14px">点击显示该省份的景区数量和客流量</p>'
                 return info;
             },
             backgroundColor: "#ff7f50",//提示标签背景颜色
@@ -149,7 +143,7 @@
                 label: {
                     normal: {
                         show: true,//显示省份标签
-                        // textStyle:{color:"#c71585"}//省份标签字体颜色
+                        textStyle:{color:"#000"}//省份标签字体颜色
                     },
                     emphasis: {
                         show: true,//对应的鼠标悬浮效果
