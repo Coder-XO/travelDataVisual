@@ -33,6 +33,7 @@ body{
     position: absolute;
     top: 0px;
     left:170px;
+    z-index: 12;
 }
 
 .lianjie{
