@@ -356,6 +356,7 @@ body{
     display: flex;
     justify-content: space-around;
     align-items: center;
+    z-index: 15;
 }
 .btnJing{
     display: block;
@@ -377,7 +378,7 @@ body{
     left: 1200px;
     /*background: gray;*/
     border-radius: 10px;
-    z-index: 3;
+    z-index: 13;
     color: white;
 }
 #tabUl{
