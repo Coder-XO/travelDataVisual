@@ -10,24 +10,6 @@
         <div id="container" style="height: 100%"></div>
 
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
-        <!-- Uncomment this line if you want to dataTool extension
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/extension/dataTool.min.js"></script>
-        -->
-        <!-- Uncomment this line if you want to use gl extension
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
-        -->
-        <!-- Uncomment this line if you want to echarts-stat extension
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
-        -->
-        <!-- Uncomment this line if you want to use map
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/map/js/china.js"></script>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/map/js/world.js"></script>
-        -->
-        <!-- Uncomment these two lines if you want to use bmap extension
-        <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=<Your Key Here>"></script>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/extension/bmap.min.js"></script>
-        -->
-
         <script type="text/javascript">
 var dom = document.getElementById("container");
 var myChart = echarts.init(dom);
@@ -39,7 +21,7 @@ var option;
 
 var dataMap = {};
 function dataFormatter(obj) {
-    var pList = ['北京','天津','河北','山西','内蒙古','辽宁','吉林','黑龙江','上海','江苏','浙江','安徽','福建','江西','山东','河南','湖北','湖南','广东','广西','海南','重庆','四川','贵州','云南','西藏','陕西','甘肃','青海','宁夏','新疆'];
+    var pList = ['北京','天津','河北','山西','内蒙古','辽宁','吉林','黑龙江','上海','江苏','浙江','安徽','福建','江西','山东','河南','湖北','湖南','广东','广西','海南','重庆','四川','贵州','云南','西藏','陕西','甘肃','青海','宁夏','新疆','香港','澳门','台湾'];
     var temp;
     for (var year = 2002; year <= 2011; year++) {
         var max = 0;
@@ -191,9 +173,9 @@ option = {
         },
         legend: {
             left: 'right',
-            data: ['第一产业', '第二产业', '第三产业', 'GDP', '金融', '房地产'],
+            data: ['五A景区', '四A景区', '三A景区','二A景区','一A景区'],
             selected: {
-                'GDP': false, '金融': false, '房地产': false
+                '二A景区': false,'一A景区': false
             }
         },
         calculable : true,
@@ -221,7 +203,7 @@ option = {
                     '北京','\n天津','河北','\n山西','内蒙古','\n辽宁','吉林','\n黑龙江',
                     '上海','\n江苏','浙江','\n安徽','福建','\n江西','山东','\n河南',
                     '湖北','\n湖南','广东','\n广西','海南','\n重庆','四川','\n贵州',
-                    '云南','\n西藏','陕西','\n甘肃','青海','\n宁夏','新疆'
+                    '云南','\n西藏','陕西','\n甘肃','青海','\n宁夏','新疆','\n香港','澳门','\n台湾'
                 ],
                 splitLine: {show: false}
             }
@@ -229,16 +211,16 @@ option = {
         yAxis: [
             {
                 type: 'value',
-                name: 'GDP（亿元）'
+                name: '数量'
             }
         ],
         series: [
             {name: 'GDP', type: 'bar'},
-            {name: '金融', type: 'bar'},
-            {name: '房地产', type: 'bar'},
-            {name: '第一产业', type: 'bar'},
-            {name: '第二产业', type: 'bar'},
-            {name: '第三产业', type: 'bar'},
+            {name: '一A景区', type: 'bar'},
+            {name: '二A景区', type: 'bar'},
+            {name: '三A景区', type: 'bar'},
+            {name: '四A景区', type: 'bar'},
+            {name: '五A景区', type: 'bar'},
             {
                 name: 'GDP占比',
                 type: 'pie',
@@ -250,7 +232,7 @@ option = {
     },
     options: [
         {
-            title: {text: '2002全国宏观经济指标'},
+            title: {text: '2002各地区景区数量变化'},
             series: [
                 {data: dataMap.dataGDP['2002']},
                 {data: dataMap.dataFinancial['2002']},
@@ -259,14 +241,14 @@ option = {
                 {data: dataMap.dataSI['2002']},
                 {data: dataMap.dataTI['2002']},
                 {data: [
-                    {name: '第一产业', value: dataMap.dataPI['2002sum']},
-                    {name: '第二产业', value: dataMap.dataSI['2002sum']},
-                    {name: '第三产业', value: dataMap.dataTI['2002sum']}
+                    {name: '五A景区', value: dataMap.dataPI['2002sum']},
+                    {name: '四A景区', value: dataMap.dataSI['2002sum']},
+                    {name: '三A景区', value: dataMap.dataTI['2002sum']}
                 ]}
             ]
         },
         {
-            title : {text: '2003全国宏观经济指标'},
+            title : {text: '2003各地区景区数量变化'},
             series : [
                 {data: dataMap.dataGDP['2003']},
                 {data: dataMap.dataFinancial['2003']},
@@ -275,14 +257,14 @@ option = {
                 {data: dataMap.dataSI['2003']},
                 {data: dataMap.dataTI['2003']},
                 {data: [
-                    {name: '第一产业', value: dataMap.dataPI['2003sum']},
-                    {name: '第二产业', value: dataMap.dataSI['2003sum']},
-                    {name: '第三产业', value: dataMap.dataTI['2003sum']}
+                    {name: '五A景区', value: dataMap.dataPI['2003sum']},
+                    {name: '四A景区', value: dataMap.dataSI['2003sum']},
+                    {name: '三A景区', value: dataMap.dataTI['2003sum']}
                 ]}
             ]
         },
         {
-            title : {text: '2004全国宏观经济指标'},
+            title : {text: '2004各地区景区数量变化'},
             series : [
                 {data: dataMap.dataGDP['2004']},
                 {data: dataMap.dataFinancial['2004']},
@@ -291,14 +273,14 @@ option = {
                 {data: dataMap.dataSI['2004']},
                 {data: dataMap.dataTI['2004']},
                 {data: [
-                    {name: '第一产业', value: dataMap.dataPI['2004sum']},
-                    {name: '第二产业', value: dataMap.dataSI['2004sum']},
-                    {name: '第三产业', value: dataMap.dataTI['2004sum']}
+                    {name: '五A景区', value: dataMap.dataPI['2004sum']},
+                    {name: '四A景区', value: dataMap.dataSI['2004sum']},
+                    {name: '三A景区', value: dataMap.dataTI['2004sum']}
                 ]}
             ]
         },
         {
-            title : {text: '2005全国宏观经济指标'},
+            title : {text: '2005各地区景区数量变化'},
             series : [
                 {data: dataMap.dataGDP['2005']},
                 {data: dataMap.dataFinancial['2005']},
@@ -307,14 +289,14 @@ option = {
                 {data: dataMap.dataSI['2005']},
                 {data: dataMap.dataTI['2005']},
                 {data: [
-                    {name: '第一产业', value: dataMap.dataPI['2005sum']},
-                    {name: '第二产业', value: dataMap.dataSI['2005sum']},
-                    {name: '第三产业', value: dataMap.dataTI['2005sum']}
+                    {name: '五A景区', value: dataMap.dataPI['2005sum']},
+                    {name: '四A景区', value: dataMap.dataSI['2005sum']},
+                    {name: '三A景区', value: dataMap.dataTI['2005sum']}
                 ]}
             ]
         },
         {
-            title : {text: '2006全国宏观经济指标'},
+            title : {text: '2006各地区景区数量变化'},
             series : [
                 {data: dataMap.dataGDP['2006']},
                 {data: dataMap.dataFinancial['2006']},
@@ -323,14 +305,14 @@ option = {
                 {data: dataMap.dataSI['2006']},
                 {data: dataMap.dataTI['2006']},
                 {data: [
-                    {name: '第一产业', value: dataMap.dataPI['2006sum']},
-                    {name: '第二产业', value: dataMap.dataSI['2006sum']},
-                    {name: '第三产业', value: dataMap.dataTI['2006sum']}
+                    {name: '五A景区', value: dataMap.dataPI['2006sum']},
+                    {name: '四A景区', value: dataMap.dataSI['2006sum']},
+                    {name: '三A景区', value: dataMap.dataTI['2006sum']}
                 ]}
             ]
         },
         {
-            title : {text: '2007全国宏观经济指标'},
+            title : {text: '2007各地区景区数量变化'},
             series : [
                 {data: dataMap.dataGDP['2007']},
                 {data: dataMap.dataFinancial['2007']},
@@ -339,14 +321,14 @@ option = {
                 {data: dataMap.dataSI['2007']},
                 {data: dataMap.dataTI['2007']},
                 {data: [
-                    {name: '第一产业', value: dataMap.dataPI['2007sum']},
-                    {name: '第二产业', value: dataMap.dataSI['2007sum']},
-                    {name: '第三产业', value: dataMap.dataTI['2007sum']}
+                    {name: '五A景区', value: dataMap.dataPI['2007sum']},
+                    {name: '四A景区', value: dataMap.dataSI['2007sum']},
+                    {name: '三A景区', value: dataMap.dataTI['2007sum']}
                 ]}
             ]
         },
         {
-            title : {text: '2008全国宏观经济指标'},
+            title : {text: '2008各地区景区数量变化'},
             series : [
                 {data: dataMap.dataGDP['2008']},
                 {data: dataMap.dataFinancial['2008']},
@@ -355,14 +337,14 @@ option = {
                 {data: dataMap.dataSI['2008']},
                 {data: dataMap.dataTI['2008']},
                 {data: [
-                    {name: '第一产业', value: dataMap.dataPI['2008sum']},
-                    {name: '第二产业', value: dataMap.dataSI['2008sum']},
-                    {name: '第三产业', value: dataMap.dataTI['2008sum']}
+                    {name: '五A景区', value: dataMap.dataPI['2008sum']},
+                    {name: '四A景区', value: dataMap.dataSI['2008sum']},
+                    {name: '三A景区', value: dataMap.dataTI['2008sum']}
                 ]}
             ]
         },
         {
-            title : {text: '2009全国宏观经济指标'},
+            title : {text: '2009各地区景区数量变化'},
             series : [
                 {data: dataMap.dataGDP['2009']},
                 {data: dataMap.dataFinancial['2009']},
@@ -371,14 +353,14 @@ option = {
                 {data: dataMap.dataSI['2009']},
                 {data: dataMap.dataTI['2009']},
                 {data: [
-                    {name: '第一产业', value: dataMap.dataPI['2009sum']},
-                    {name: '第二产业', value: dataMap.dataSI['2009sum']},
-                    {name: '第三产业', value: dataMap.dataTI['2009sum']}
+                    {name: '五A景区', value: dataMap.dataPI['2009sum']},
+                    {name: '四A景区', value: dataMap.dataSI['2009sum']},
+                    {name: '三A景区', value: dataMap.dataTI['2009sum']}
                 ]}
             ]
         },
         {
-            title : {text: '2010全国宏观经济指标'},
+            title : {text: '2010各地区景区数量变化'},
             series : [
                 {data: dataMap.dataGDP['2010']},
                 {data: dataMap.dataFinancial['2010']},
@@ -387,14 +369,14 @@ option = {
                 {data: dataMap.dataSI['2010']},
                 {data: dataMap.dataTI['2010']},
                 {data: [
-                    {name: '第一产业', value: dataMap.dataPI['2010sum']},
-                    {name: '第二产业', value: dataMap.dataSI['2010sum']},
-                    {name: '第三产业', value: dataMap.dataTI['2010sum']}
+                    {name: '五A景区', value: dataMap.dataPI['2010sum']},
+                    {name: '四A景区', value: dataMap.dataSI['2010sum']},
+                    {name: '三A景区', value: dataMap.dataTI['2010sum']}
                 ]}
             ]
         },
         {
-            title : {text: '2011全国宏观经济指标'},
+            title : {text: '2011各地区景区数量变化'},
             series : [
                 {data: dataMap.dataGDP['2011']},
                 {data: dataMap.dataFinancial['2011']},
@@ -403,9 +385,9 @@ option = {
                 {data: dataMap.dataSI['2011']},
                 {data: dataMap.dataTI['2011']},
                 {data: [
-                    {name: '第一产业', value: dataMap.dataPI['2011sum']},
-                    {name: '第二产业', value: dataMap.dataSI['2011sum']},
-                    {name: '第三产业', value: dataMap.dataTI['2011sum']}
+                    {name: '五A景区', value: dataMap.dataPI['2011sum']},
+                    {name: '四A景区', value: dataMap.dataSI['2011sum']},
+                    {name: '三A景区', value: dataMap.dataTI['2011sum']}
                 ]}
             ]
         }

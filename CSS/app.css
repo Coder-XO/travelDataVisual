@@ -27,11 +27,11 @@ body {
 	font-weight:400;color:#fff;
 }
 
-#container2{
-	margin-left: 200px;
-	width:1500px;
-	height:700px;
-}
+/*#container2{*/
+/*	margin-left: 200px;*/
+/*	width:1500px;*/
+/*	height:700px;*/
+/*}*/
 
 #container {
 	/*position:absolute;top:1100px;*/
@@ -42,10 +42,10 @@ body {
 	z-index: 18;
 }
 .chart-div {
-	width:1500px;height:700px;
+	width:1200px;height:700px;
 	margin: 0 auto;
 	position: absolute;
-	left: 326px;
+	left: 300px;
 }
 
 /* media query */
