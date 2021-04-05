@@ -34,7 +34,7 @@
     <div id="main1" class='biao' style="width: 1200px;height: 640px"></div>
 </div>
 <div id="fan">
-    <a href="../index.html">
+    <a href="../main.html">
         <img src="../images/1.png" alt="" width="64" height="64">
     </a>
 </div>
@@ -47,7 +47,6 @@
 <div id="xiala2" style="width: 42px;height: 42px;position: absolute;left: 50%;top: 1840px;margin-left: -32px;cursor: pointer">
     <img src="../images/2.png" alt="" width="42" height="42">
 </div>
-
 
 <!--上拉-->
 <div id="xiala3" style="width: 42px;height: 42px;position: absolute;left: 50%;top: 2710px;margin-left: -32px;cursor: pointer">
@@ -66,7 +65,7 @@
 
 <!-- 动态柱状图 -->
 
-<iframe id="container2" src="../iframe/dataBottom.html" frameborder="0"></iframe>
+<iframe id="container2" src="../iframe/dataBottom.html" frameborder="0" style="width: 1300px;height: 700px;margin-left: 280px;"></iframe>
 
 <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
 <!--<script type="text/javascript" src="../js/echarts.min.js"></script>-->
@@ -77,9 +76,29 @@
     let myChart1 = echarts.init(document.getElementById('main1'));
     myChart1.setOption(option1);
 
-    import option2 from "../options/xinjiang2.js";
+    import option4 from "../options/second.js";
     let myChart2 = echarts.init(document.getElementById('main2'));
-    myChart2.setOption(option2);
+    myChart2.setOption(option4);
+
+
+    myChart2.on('updateAxisPointer', function (event) {
+        var xAxisInfo = event.axesInfo[0];
+        if (xAxisInfo) {
+            var dimension = xAxisInfo.value + 1;
+            myChart.setOption({
+                series: {
+                    id: 'pie',
+                    label: {
+                        formatter: '{b}: {@[' + dimension + ']} ({d}%)'
+                    },
+                    encode: {
+                        value: dimension,
+                        tooltip: dimension
+                    }
+                }
+            });
+        }
+    });
 
 
 // 下拉事件

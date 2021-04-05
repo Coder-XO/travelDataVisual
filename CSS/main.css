@@ -508,3 +508,6 @@ body{
     }
 }
 
+.AN{
+    animation: top_bottom 1s infinite alternate linear;
+}

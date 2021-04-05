@@ -27,6 +27,7 @@
     </style>
 </head>
 <body>
+
 <div class="big">
     <div id="main1" class='biao'></div>
     <div id="main2" class='biao'></div>
@@ -43,6 +44,12 @@
     <img src="../images/2.png" alt="" width="42" height="42">
 </div>
 
+
+<!--上拉-->
+<div id="xiala3" style="width: 42px;height: 42px;position: absolute;left: 50%;top: 1700px;margin-left: -32px;cursor: pointer">
+    <img src="../images/3.png" alt="" width="62" height="22">
+</div>
+
 <!--树图-->
 
 <div id="container">
@@ -51,30 +58,239 @@
     </div>
 </div>
 
-<!--上拉-->
-<div id="xiala3" style="width: 42px;height: 42px;position: absolute;left: 50%;top: 1700px;margin-left: -32px;cursor: pointer">
-    <img src="../images/3.png" alt="" width="62" height="22">
-</div>
 
 <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
 <!--<script type="text/javascript" src="../js/echarts.min.js"></script>-->
 <script type="text/javascript" src="../js/echarts-theme-shine.js"></script>
 <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.0.2/echarts.min.js"></script>
 <script type="module">
-    import option1 from "../options/xinjiang1.js";
+
+    // 双折现
+    let option3 = {
+        tooltip: {
+            trigger: 'axis'
+        },
+        legend: {
+            data: ['人数(万人次)', '总收入(亿元)']    //  图二  小标题
+        },
+        title: {
+            text: '国内旅游主要经济指标'    //  图二  大标题
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: ['1995', '2000', '2005', '2010', '2015', '2018', '2019']     //  横轴
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [{
+            data: [24314, 30911, 27395, 30781, 35071,44765,54494],     //  人数
+            type: 'line',
+            areaStyle: {},
+            name:'人数(万人次)'
+        },
+            {
+                data: [42.01,141.90,209.17,350.71,501.91,646.67,740.23],    // 年总收入
+                type: 'line',
+                areaStyle: {},
+                name:'总收入(亿元)'
+            }]
+    };
+
+// 堆积图
+   let option1 = {
+        color: ['#80FFA5', '#00DDFF', '#37A2FF', '#FF0087', '#FFBF00'],
+        // title: {
+        //     text: '渐变堆叠面积图'
+        // },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'cross',
+                label: {
+                    backgroundColor: '#6a7985'
+                }
+            }
+        },
+        legend: {
+            data: [ '外国人', '港澳和台湾同胞', '国内旅游人数(万人次)', '国际旅游外汇收入(万美元)','国内旅游收入(亿元)']    // 图一小标题
+        },
+        toolbox: {
+            feature: {
+                saveAsImage: {}
+            }
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: [
+            {
+                type: 'category',
+                boundaryGap: false,
+                data: ['2006', '2007', '2009', '2010','2011','2013','2014','2015']
+            }
+        ],
+        yAxis: [
+            {
+                type: 'value'
+            }
+        ],
+        series: [
+            {
+                name: '外国人',       //  小标题
+                type: 'line',
+                stack: '总量',
+                smooth: true,
+                lineStyle: {
+                    width: 0
+                },
+                showSymbol: false,
+                areaStyle: {
+                    opacity: 0.8,
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(128, 255, 165)'
+                    }, {
+                        offset: 1,
+                        color: 'rgba(1, 191, 236)'
+                    }])
+                },
+                emphasis: {
+                    focus: 'series'
+                },
+                data: [654003, 738386, 670210, 746930, 853110,982681,1067125,1083201]    // 各小标题数据
+            },
+            {
+                name: '港澳和台湾同胞',
+                type: 'line',
+                stack: '总量',
+                smooth: true,
+                lineStyle: {
+                    width: 0
+                },
+                showSymbol: false,
+                areaStyle: {
+                    opacity: 0.8,
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(0, 221, 255)'
+                    }, {
+                        offset: 1,
+                        color: 'rgba(77, 119, 255)'
+                    }])
+                },
+                emphasis: {
+                    focus: 'series'
+                },
+                data: [70835, 79213, 79972, 95255, 124337,158758,226076,226644,268015,298615]
+            },
+            {
+                name: '国内旅游人数(万人次)',
+                type: 'line',
+                stack: '总量',
+                smooth: true,
+                lineStyle: {
+                    width: 0
+                },
+                showSymbol: false,
+                areaStyle: {
+                    opacity: 0.8,
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(55, 162, 255)'
+                    }, {
+                        offset: 1,
+                        color: 'rgba(116, 21, 219)'
+                    }])
+                },
+                emphasis: {
+                    focus: 'series'
+                },
+                data: [24314, 30911, 27395, 30781, 35071,44765,54494,58578,53419,62144]
+            },
+            {
+                name: '国际旅游外汇收入(万美元)',
+                type: 'line',
+                stack: '总量',
+                smooth: true,
+                lineStyle: {
+                    width: 0
+                },
+                showSymbol: false,
+                areaStyle: {
+                    opacity: 0.8,
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(255, 0, 135)'
+                    }, {
+                        offset: 1,
+                        color: 'rgba(135, 0, 157)'
+                    }])
+                },
+                emphasis: {
+                    focus: 'series'
+                },
+                data: [9053, 12164, 14851,18627,22911,26988,31368,37060]
+            },
+            {
+                name: '国内旅游收入(亿元)',
+                type: 'line',
+                stack: '总量',
+                smooth: true,
+                lineStyle: {
+                    width: 0
+                },
+                showSymbol: false,
+                label: {
+                    show: true,
+                    position: 'top'
+                },
+                areaStyle: {
+                    opacity: 0.8,
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                        offset: 0,
+                        color: 'rgba(255, 191, 0)'
+                    }, {
+                        offset: 1,
+                        color: 'rgba(224, 62, 76)'
+                    }])
+                },
+                emphasis: {
+                    focus: 'series'
+                },
+                data: [489.95, 556.69, 535.45, 688.70, 890.84,1192.21,1553.91,1973.82,2528.66,3395.60]
+            }
+        ]
+    };
+
+
+
+
+    // // 下拉事件
+    let xiala3 = document.getElementById('xiala3')
+    xiala3.onclick = function (){
+        window.scrollTo(0,0)
+    }
+
+    // 画图
+    // import option1 from "../options/xinjiang1.js";
     let myChart1 = echarts.init(document.getElementById('main1'));
     myChart1.setOption(option1);
 
     import option2 from "../options/xinjiang2.js";
     let myChart2 = echarts.init(document.getElementById('main2'));
-    myChart2.setOption(option2);
+    myChart2.setOption(option3);
+
+
 
     xiala.onclick = function (){
         window.scrollTo(0,9999)
     }
-    xiala3.onclick = function (){
-        window.scrollTo(0,0)
-    }
+
 
 
     // 树图部分
@@ -89,33 +305,54 @@
             label: {fontSize: 14},
             children: [
                 {
-                    name: '董事会独立性',
+                    name: '西柏坡景区',
                     symbolSize: 8,
                     itemStyle: {color: '#d4237a'},
-                    // children: [
-                    // 	{name: '董事会总人数', itemStyle: {color: '#d4237a'}},
-                    // 	{name: '行业内董事会规模人数均值', itemStyle: {color: '#d4237a'}},
-                    // 	{name: '独立董事人数', itemStyle: {color: '#d4237a'}},
-                    // 	{name: '执行董事人数', itemStyle: {color: '#d4237a'}},
-                    // 	{name: '董事长是否兼任其他高管', itemStyle: {color: '#d4237a'}},
-                    // 	{name: '董事长是否来自大股东', itemStyle: {color: '#d4237a'}},
-                    // 	{name: '兼任经理层的董事人数', itemStyle: {color: '#d4237a'}},
-                    // 	{name: '是否含有党员董事', itemStyle: {color: '#d4237a'}}
-                    // ]
                 },
                 {
-                    name: '董事会专业性',
+                    name: '唐山市清东陵景区',
                     symbolSize: 8,
                     itemStyle: {color: '#d4237a'},
-                    // children: [
-                    // 	{name: '委员会主任是否独董担任', itemStyle: {color: '#d4237a'}},
-                    // 	{name: '专业独立董事人数', itemStyle: {color: '#d4237a'}},
-                    // 	{name: '董事变更时间', itemStyle: {color: '#d4237a'}},
-                    // 	{name: '战略决策委员会', itemStyle: {color: '#d4237a'}},
-                    // 	{name: '提名委员会', itemStyle: {color: '#d4237a'}},
-                    // 	{name: '薪酬委员会', itemStyle: {color: '#d4237a'}},
-                    // 	{name: '审计委员会', itemStyle: {color: '#d4237a'}}
-                    // ]
+                },
+                {
+                    name: '保定市安新白洋淀景区',
+                    symbolSize: 8,
+                    itemStyle: {color: '#d4237a'},
+                },
+                {
+                    name: '野三坡风景名胜区',
+                    symbolSize: 8,
+                    itemStyle: {color: '#d4237a'},
+                },
+                {
+                    name: '河北省保定市白石山景区',
+                    symbolSize: 8,
+                    itemStyle: {color: '#d4237a'},
+                },
+                {
+                    name: '保定易县清西陵景区',
+                    symbolSize: 8,
+                    itemStyle: {color: '#d4237a'},
+                },
+                {
+                    name: '邯郸市广府古城景区',
+                    symbolSize: 8,
+                    itemStyle: {color: '#d4237a'},
+                },
+                {
+                    name: '娲皇宫风景名胜区',
+                    symbolSize: 8,
+                    itemStyle: {color: '#d4237a'},
+                },
+                {
+                    name: '秦皇岛山海关景区',
+                    symbolSize: 8,
+                    itemStyle: {color: '#d4237a'},
+                },
+                {
+                    name: '承德避暑山庄',
+                    symbolSize: 8,
+                    itemStyle: {color: '#d4237a'},
                 }
             ]
         };
@@ -126,213 +363,64 @@
             label: {fontSize: 14},
             children: [
                 {
-                    name: '专门委员会会议',
+                    name: '天山海世界景区',
                     symbolSize: 8,
                     itemStyle: {color: '#e6b600'},
-                    // children: [
-                    // 	{name: '召开次数', itemStyle: {color: '#e6b600'}},
-                    // 	{name: '独董出席比率', itemStyle: {color: '#e6b600'}},
-                    // 	{name: '提交董事会议题数', itemStyle: {color: '#e6b600'}},
-                    // 	{name: '董事会采纳议题数', itemStyle: {color: '#e6b600'}}
-                    // ]
                 },
                 {
-                    name: '董事会会议',
+                    name: '天桂山景区',
                     symbolSize: 8,
                     itemStyle: {color: '#e6b600'},
-                    // children: [
-                    // 	{name: '召开次数', itemStyle: {color: '#e6b600'}},
-                    // 	{name: '通讯会议次数', itemStyle: {color: '#e6b600'}},
-                    // 	{name: '会议议题数', itemStyle: {color: '#e6b600'}},
-                    // 	{name: '表决反对票数', itemStyle: {color: '#e6b600'}},
-                    // 	{name: '独董出席比率', itemStyle: {color: '#e6b600'}},
-                    // 	{name: '独董独立发表反对意见数', itemStyle: {color: '#e6b600'}}
-                    // ]
                 },
                 {
-                    name: '股东大会',
+                    name: '滦州古城景区',
                     symbolSize: 8,
                     itemStyle: {color: '#e6b600'},
-                    // children: [
-                    // 	{name: '股东大会的董事出席率', itemStyle: {color: '#e6b600'}},
-                    // 	{name: '股东大会是否采用累积投票制', itemStyle: {color: '#e6b600'}},
-                    // 	{name: '股东大会决议事项投票率', itemStyle: {color: '#e6b600'}},
-                    // 	{name: '董事会决议事项反对率', itemStyle: {color: '#e6b600'}}
-                    // ]
                 },
                 {
-                    name: '与党委的关系',
+                    name: '唐山南湖生态旅游风景区',
                     symbolSize: 8,
                     itemStyle: {color: '#e6b600'},
-                    // children: [
-                    // 	{name: '党建条款是否进入公司章程', itemStyle: {color: '#e6b600'}},
-                    // 	{name: '党委与董事会成员是否双向进入、交叉任职', itemStyle: {color: '#e6b600'}},
-                    // 	{name: '决策程序上是否党委会前置', itemStyle: {color: '#e6b600'}},
-                    // 	{name: '是否披露党委会等党组织参与治理情况', itemStyle: {color: '#e6b600'}}
-                    // ]
-                }
-            ]
-        };
-        const treeData3 = {
-            name: '三A景区',
-            symbolSize: 10,
-            itemStyle: {color: '#005eaa'},
-            label: {fontSize: 14},
-            children: [
-                {
-                    name: '社会',
-                    symbolSize: 8,
-                    itemStyle: {color: '#005eaa'},
-                    // children: [
-                    // 	{name: '每股社会责任值', itemStyle: {color: '#005eaa'}},
-                    // 	{name: '纳税总额', itemStyle: {color: '#005eaa'}},
-                    // 	{name: '就业人数', itemStyle: {color: '#005eaa'}},
-                    // 	{name: '环保、扶贫和慈善投入', itemStyle: {color: '#005eaa'}}
-                    // ]
                 },
                 {
-                    name: '股东',
+                    name: '保定易水湖景区',
                     symbolSize: 8,
-                    itemStyle: {color: '#005eaa'},
-                    // children: [
-                    // 	{name: '净资产收益率', itemStyle: {color: '#005eaa'}},
-                    // 	{name: '市值增值率', itemStyle: {color: '#005eaa'}},
-                    // 	{name: '股息率', itemStyle: {color: '#005eaa'}}
-                    // ]
+                    itemStyle: {color: '#e6b600'},
                 },
                 {
-                    name: '员工',
+                    name: '潭瀑峡',
                     symbolSize: 8,
-                    itemStyle: {color: '#005eaa'},
-                    // children: [
-                    // 	{name: '员工收入增幅', itemStyle: {color: '#005eaa'}},
-                    // 	{name: '公司人均薪酬', itemStyle: {color: '#005eaa'}},
-                    // 	{name: '行业平均人均薪酬', itemStyle: {color: '#005eaa'}},
-                    // 	{name: '是否员工持股', itemStyle: {color: '#005eaa'}}
-                    // ]
+                    itemStyle: {color: '#e6b600'},
                 },
                 {
-                    name: '客户',
+                    name: '武安京娘湖景区',
                     symbolSize: 8,
-                    itemStyle: {color: '#005eaa'},
-                    // children: [
-                    // 	{name: '研发占比', itemStyle: {color: '#005eaa'}},
-                    // 	{name: '市场份额', itemStyle: {color: '#005eaa'}},
-                    // 	{name: '毛利率', itemStyle: {color: '#005eaa'}}
-                    // ]
+                    itemStyle: {color: '#e6b600'},
                 },
                 {
-                    name: '外部评价',
+                    name: '武安市七步沟景区',
                     symbolSize: 8,
-                    itemStyle: {color: '#005eaa'},
-                    // children: [
-                    // 	{name: '是否入选上市公司“金圆桌奖”', itemStyle: {color: '#005eaa'}},
-                    // 	{name: '是否进入明晟指数', itemStyle: {color: '#005eaa'}},
-                    // 	{name: '是否上证180治理', itemStyle: {color: '#005eaa'}},
-                    // 	{name: '负面新闻报道转载数', itemStyle: {color: '#005eaa'}}
-                    // ]
-                }
-            ]
-        };
-        const treeData4 = {
-            name: '二A景区',
-            symbolSize: 10,
-            itemStyle: {color: '#339ca8'},
-            label: {fontSize: 14},
-            children: [
-                {
-                    name: '披露日期',
-                    symbolSize: 8,
-                    itemStyle: {color: '#339ca8'},
-                    // children: [
-                    // 	{name: '年报披露日期距1月1日的天数', itemStyle: {color: '#339ca8'}},
-                    // 	{name: '半年报披露日期距7月1日的天数', itemStyle: {color: '#339ca8'}},
-                    // 	{name: '一季报披露日期距4月1日的天数', itemStyle: {color: '#339ca8'}},
-                    // 	{name: '三季报披露日期距10月1日的天数', itemStyle: {color: '#339ca8'}},
-                    // ]
+                    itemStyle: {color: '#e6b600'},
                 },
                 {
-                    name: '披露一致性',
+                    name: '邢台天河山',
                     symbolSize: 8,
-                    itemStyle: {color: '#339ca8'},
-                    // children: [
-                    // 	{name: '信息披露、定期报告披露后的更正数量', itemStyle: {color: '#339ca8'}},
-                    // 	{name: '业绩预告与正式公告是否一致', itemStyle: {color: '#339ca8'}}
-                    // ]
+                    itemStyle: {color: '#e6b600'},
                 },
                 {
-                    name: '内部控制',
+                    name: '九龙峡旅游区',
                     symbolSize: 8,
-                    itemStyle: {color: '#339ca8'},
-                    // children: [
-                    // 	{name: '内部控制文件累计数量（个）', itemStyle: {color: '#339ca8'}},
-                    // 	{name: '是否披露内部控制评价', itemStyle: {color: '#339ca8'}},
-                    // 	{name: '是否披露内部控制缺陷', itemStyle: {color: '#339ca8'}},
-                    // 	{name: '是否有效实施内部控制缺陷整改', itemStyle: {color: '#339ca8'}}
-                    // ]
+                    itemStyle: {color: '#e6b600'},
                 },
-                {
-                    name: '当初审计报告意见',
-                    itemStyle: {color: '#339ca8'},
-                    symbolSize: 8,
-                    // children: [
-                    // 	{name: '标准无保留', itemStyle: {color: '#339ca8'}},
-                    // 	{name: '拒绝发表意见', itemStyle: {color: '#339ca8'}},
-                    // 	{name: '否定意见', itemStyle: {color: '#339ca8'}}
-                    // ]
-                }
-            ]
-        };
-        const treeData5 = {
-            name: '一A景区',
-            symbolSize: 10,
-            itemStyle: {color: '#7760f6'},
-            label: {fontSize: 14},
-            children: [
-                {
-                    name: '非独立董事薪酬与激励',
-                    symbolSize: 8,
-                    itemStyle: {color: '#7760f6'},
-                    // children: [
-                    // 	{name: '董事本年薪酬', itemStyle: {color: '#7760f6'}},
-                    // 	{name: '行业董事平均薪酬', itemStyle: {color: '#7760f6'}},
-                    // 	{name: '董事持股人数', itemStyle: {color: '#7760f6'}},
-                    // 	{name: '平均持股比例', itemStyle: {color: '#7760f6'}},
-                    // 	{name: '董事增持次数', itemStyle: {color: '#7760f6'}},
-                    // 	{name: '董事减持次数', itemStyle: {color: '#7760f6'}}
-                    // ]
-                },
-                {
-                    name: '独立董事津贴',
-                    symbolSize: 8,
-                    itemStyle: {color: '#7760f6'},
-                    // children: [
-                    // 	{name: '独立董事本年津贴', itemStyle: {color: '#7760f6'}},
-                    // 	{name: '行业独立董事平均津贴', itemStyle: {color: '#7760f6'}}
-                    // ]
-                },
-                {
-                    name: '董事责任',
-                    symbolSize: 8,
-                    itemStyle: {color: '#7760f6'},
-                    // children: [
-                    // 	{name: '董事是否遭批评、谴责、禁入等处罚', itemStyle: {color: '#7760f6'}},
-                    // 	{name: '诉讼金额', itemStyle: {color: '#7760f6'}},
-                    // 	{name: '赔偿金额', itemStyle: {color: '#7760f6'}}
-                    // ]
-                }
             ]
         };
         const treeData = {
-            name: '安徽',
+            name: '河北',
             symbolSize: 12,
             label: {fontSize: 16},
             children: [
                 treeData1,
-                treeData2,
-                treeData3,
-                treeData4,
-                treeData5
+                treeData2
             ]
         };
         const treeChartOpt = {
@@ -343,29 +431,60 @@
                     color: "#fff"
                 },
                 subtextStyle: {
-                    fontSize: 12
+                    fontSize: 18
                 },
-                left: 15,
+                 left: 15,
                 top: 15
             },
             series: [
                 {
+                    top: '5%',
+                    left: '2%',
+                    bottom: '2%',
+                    right: '20%',
+
+                    symbol: 'emptyCircle',
+
+                    //orient: 'vertical',
+
+                    expandAndCollapse: true,
+
+                    // label: {
+                    //     position: 'right',
+                    //     rotate: -90,
+                    //     verticalAlign: 'middle',
+                    //     align: 'left',
+                    //     fontSize: 16
+                    // },
+                    //
+                    // leaves: {
+                    //     label: {
+                    //         position: 'right',
+                    //         rotate: -90,
+                    //         verticalAlign: 'middle',
+                    //         align: 'left'
+                    //     }
+                    // },
+
+                    animationDurationUpdate: 750,
+
+
                     name: '安徽',
                     type: 'tree',
-                    left: '5%',
-                    right: '20%',
-                    top: '1%',
-                    bottom: '1%',
-                    orient: 'TB', //方向
+                    // left: '5%',
+                    // right: '20%',
+                    // // top: '1%',
+                    // // bottom: '1%',
+                    //  orient: 'TB', //方向
                     initialTreeDepth: 0, //深度
-                    symbol: 'circle',
+                    // symbol: 'circle',
                     itemStyle: {
                         color: '#ab2042',
                         borderColor: '#9aa8d4'
                     },
                     lineStyle: {
                         width: 1,
-                        curveness: .9,
+                        curveness: .5,
                         color:'skyblue'
                     },
                     label: {
@@ -374,7 +493,8 @@
                     },
                     leaves: {
                         label: {
-                            position: 'right'
+                            position: 'right',
+                            fontSize: 16
                         }
                     },
                     data: [treeData]
@@ -388,7 +508,7 @@
         let intervalId = window.setInterval(function() {
             treeChart.setOption({
                 series: [{
-                    name: '董事会指标体系',
+                    name: '安徽',
                     initialTreeDepth: deep++
                 }]
             });
@@ -401,121 +521,6 @@
         $(window).resize(function() {
             treeChart.resize();
         });
-
-        treeChart.on('click', function (param){
-            let selected = param.name;
-            if (selected) {
-                switch(selected){
-                    case '董事会总人数':
-                        // location.href = "./provinceHTML/xizang.html";
-                        console.log(23)
-                        break;
-                    case '北京':
-                        location.href = "./provinceHTML/beijing.html";
-                        break;
-                    case '天津':
-                        location.href = "./provinceHTML/tianjin.html";
-                        break;
-                    case '上海':
-                        location.href = "./provinceHTML/shanghai.html";
-                        break;
-                    case '重庆':
-                        location.href ="./provinceHTML/chongqing.html";
-                        break;
-                    case '河北':
-                        location.href = "./provinceHTML/hebei.html";
-                        break;
-                    case '河南':
-                        location.href = "./provinceHTML/henan.html";
-                        break;
-                    case '云南':
-                        location.href = "./provinceHTML/yunnan.html";
-                        break;
-                    case '辽宁':
-                        location.href = "./provinceHTML/liaoning.html";
-                        break;
-                    case '黑龙江':
-                        location.href = "./provinceHTML/heilongjiang.html";
-                        break;
-                    case '湖南':
-                        location.href = "./provinceHTML/hunan.html";
-                        break;
-                    case '安徽':
-                        location.href = "./provinceHTML/anhui.html";
-                        break;
-                    case '山东':
-                        location.href ="./provinceHTML/shandong.html";
-                        break;
-                    case '新疆':
-                        location.href = "./provinceHTML/xinjiang.html";
-                        break;
-                    case '江苏':
-                        location.href = "./provinceHTML/jiangsu.html";
-                        break;
-                    case '浙江':
-                        location.href = "./provinceHTML/zhejiang.html";
-                        break;
-                    case '江西':
-                        location.href = "./provinceHTML/jiangxi.html";
-                        break;
-                    case '湖北':
-                        location.href = "./provinceHTML/hubei.html";
-                        break;
-                    case '广西':
-                        location.href = "./provinceHTML/guangxi.html";
-                        break;
-                    case '甘肃':
-                        location.href = "./provinceHTML/gansu.html";
-                        break;
-                    case '山西':
-                        location.href = "./provinceHTML/shanxi.html";
-                        break;
-                    case '内蒙古':
-                        location.href = "./provinceHTML/neimeng.html";
-                        break;
-                    case '陕西':
-                        location.href = "./provinceHTML/Shanxixi.html";
-                        break;
-                    case '吉林':
-                        location.href = "./provinceHTML/jilin.html";
-                        break;
-                    case '福建':
-                        location.href = "./provinceHTML/fujian.html";
-                        break;
-                    case '贵州':
-                        location.href = "./provinceHTML/guizhou.html";
-                        break;
-                    case '广东':
-                        location.href = "./provinceHTML/guangdong.html";
-                        break;
-                    case '青海':
-                        location.href = "./provinceHTML/qinghai.html";
-                        break;
-                    case '四川':
-                        location.href = "./provinceHTML/sichuan.html";
-                        break;
-                    case '宁夏':
-                        location.href = "./provinceHTML/ningxia.html";
-                        break;
-                    case '海南':
-                        location.href = "./provinceHTML/hainan.html";
-                        break;
-                    case '台湾':
-                        location.href = "./provinceHTML/taiwan.html";
-                        break;
-                    case '香港':
-                        location.href = "./provinceHTML/xianggang.html";
-                        break;
-                    case '澳门':
-                        location.href = "./provinceHTML/aomen.html";
-                        break;
-                    default:
-                        break;
-                }
-
-            }
-        });
-
     });
 </script>
 </body>

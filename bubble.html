@@ -1,0 +1,80 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>JS一团气泡文字标签云代码 - 站长素材</title>
+
+<link rel="stylesheet" href="./CSS/Bubble.css">
+<style>
+  body{background-color: #252525}	
+</style>
+
+<script type="text/javascript" src="js/Bubble.js"></script>
+
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="tagcloud">
+      <!-- bo大小 co颜色 -->
+      <a class="b01 co01" href="./bubbleHTML/hebei.html">河北</a>
+      <a class="b02 co02" href="./bubbleHTML/shanxi.html">山西</a>
+      <a class="b03 co05" href="./bubbleHTML/liaoning.html">辽宁</a>
+      <a class="b04 co02" href="./bubbleHTML/jilin.html">吉林</a>
+      <a class="b03 co05" href="./bubbleHTML/heilongjiang.html">黑龙江</a>
+      <a class="b02 co06" href="./bubbleHTML/jiangsu.html">江苏</a>
+      <a class="b03 co07" href="./bubbleHTML/zhejiang.html">浙江</a>
+      <a class="b04 co01" href="./bubbleHTML/anhui.html">安徽</a>
+      <a class="b03 co02" href="./bubbleHTML/fujian.html">福建</a>
+      <a class="b04 co03" href="./bubbleHTML/jiangxi.html">江西</a>
+      <a class="b03 co04" href="./bubbleHTML/shandong.html">山东</a>
+      <a class="b04 co05" href="./bubbleHTML/henan.html">河南</a>
+      <a class="b04 co06" href="./bubbleHTML/hubei.html">湖北</a>
+      <a class="b02 co07" href="./bubbleHTML/hunan.html">湖南</a>
+      <a class="b03 co01" href="./bubbleHTML/guangdong.html">广东</a>
+      <a class="b04 co02" href="./bubbleHTML/hainan.html">海南</a>
+      <a class="b01 co01" href="./bubbleHTML/sichuan.html">四川</a>
+      <a class="b03 co06" href="./bubbleHTML/guizhou.html">贵州</a>
+      <a class="b03 co05" href="./bubbleHTML/yunnan.html">云南</a>
+      <a class="b04 co06" href="./bubbleHTML/shanxixi.html">陕西</a>
+      <a class="b04 co03" href="./bubbleHTML/gansu.html">甘肃</a>
+      <a class="b03 co04" href="./bubbleHTML/qinghai.html">青海</a>
+      <a class="b04 co05" href="./bubbleHTML/taiwan.html">台湾</a>
+      <a class="b04 co06" href="./bubbleHTML/xinjiang.html">新疆</a>
+      <a class="b02 co07" href="./bubbleHTML/ningxia.html">宁夏</a>
+      <a class="b03 co01" href="./bubbleHTML/xizang.html">西藏</a>
+      <a class="b04 co02" href="./bubbleHTML/guangxi.html">广西</a>
+      <a class="b01 co01" href="./bubbleHTML/neimeng.html">内蒙古</a>
+      <a class="b03 co06" href="./bubbleHTML/beijing.html">北京</a>
+      <a class="b03 co05" href="./bubbleHTML/tianjin.html">天津</a>
+      <a class="b04 co06" href="./bubbleHTML/shanghai.html">上海</a>
+      <a class="b01 co01" href="./bubbleHTML/chongqing.html">重庆</a>
+      <a class="b02 co02" href="./bubbleHTML/xianggang.html">香港</a>
+      <a class="b03 co05" href="./bubbleHTML/aomen.html">澳门</a>
+    </div>
+</div><!--wrapper-->
+
+<div id="fan" style="position: fixed;right: 50px;bottom: 50px;">
+  <a href="./main.html">
+    <img src="./images/1.png" alt="" width="64" height="64">
+  </a>
+</div>
+<script type="text/javascript">
+    /*3D标签云*/
+    tagcloud({
+
+        selector: ".tagcloud",  //元素选择器
+        fontsize: 16,       //基本字体大小, 单位px
+        radius: 200,         //滚动半径, 单位px 页面宽度和高度的五分之一
+        mspeed: "slow",   //滚动最大速度, 取值: slow, normal(默认), fast
+        ispeed: "slow",   //滚动初速度, 取值: slow, normal(默认), fast
+        direction: 135,     //初始滚动方向, 取值角度(顺时针360): 0对应top, 90对应left, 135对应right-bottom(默认)...
+        keep: true          //鼠标移出组件后是否继续随鼠标滚动, 取值: false, true(默认) 对应 减速至初速度滚动, 随鼠标滚动
+    });
+</script>
+<div style="text-align:center;margin:100px 0; font:normal 14px/24px 'MicroSoft YaHei';color:#ffffff">
+</div>
+</body>
+</html>

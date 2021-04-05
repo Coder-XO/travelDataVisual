@@ -39,18 +39,18 @@
     <span style="font-size: 46px;user-select: none;font-family: 欧体">旅游数据</span>
 </div>
 <div id="jingqu">
-    <button class="btnJing" id="ren">人流量</button>
-    <button class="btnJing" id="jing">景区</button>
+    <button class="btnJing" id="ren">人流量(万)</button>
+    <button class="btnJing" id="jing">景区(个)</button>
 </div>
 <div id="tab">
     <ul id="tabUl">
-        <li><a href="./provinceHTML/dataBase.html">数据库</a></li>
-        <li><a href="">景区博物馆</a></li>
+        <li class="AN"><a href="./provinceHTML/dataBase.html"><img  alt="" width="64" height="64" title="数据库" id="DBK"></a></li>
+        <li class="AN"><a href="./bubble.html"><img  alt="" width="64" height="64" title="景区博物馆" ID="BWG"></a></li>
     </ul>
 </div>
 
 <!--加载动画-->
-<div class='base' id="ani">
+<div class='base' id="ani" style="position: absolute;z-index: 20">
     <div class='cube'></div>
     <div class='cube'></div>
     <div class='cube'></div>
@@ -61,18 +61,19 @@
     <div class='cube'></div>
     <div class='cube'></div>
 </div>
-<a href="" id="animation"></a>
+<a href="" id="animation" style="position: absolute;z-index: 23"></a>
 
 <script type="text/javascript">
-    // 全国省份列表
-    let dataMap = [{ name: '北京',value: 20057.34 }, { name: '天津', value: 20057.34 }, { name: '上海', value: 20057.34 }, { name: '重庆', value: 20057.34 }, { name: '河北', value: 20057.34 }, { name: '河南' , value: 20057.34}, { name: '云南' , value: 20057.34}, { name: '辽宁', value: 20057.34 }, { name: '黑龙江' , value: 20057.34}, { name: '湖南' , value: 20057.34}, { name: '安徽' , value: 20057.34}, { name: '山东' , value: 20057.34},
-    { name: '新疆' , value: 20057.34}, { name: '江苏' , value: 20057.34}, { name: '浙江' , value: 20057.34}, { name: '江西' , value: 20057.34}, { name: '湖北' , value: 20057.34}, { name: '广西' , value: 20057.34}, { name: '甘肃' , value: 20057.34}, { name: '山西' , value: 20057.34}, { name: '内蒙古', value: 20057.34 }, { name: '陕西' , value: 20057.34}, { name: '吉林', value: 20057.34 }, { name: '福建', value: 20057.34 }, { name: '贵州' , value: 20057.34},
-    { name: '广东' , value: 20057.34}, { name: '青海' , value: 20057.34}, { name: '西藏' , value: 20057.34}, { name: '四川' , value: 20057.34}, { name: '宁夏' , value: 20057.34}, { name: '海南' , value: 20057.34}, { name: '台湾', value: 20057.34 }, { name: '香港' , value: 20057.34}, { name: '澳门' , value: 20057.34}]
+    // 全国省份列表   万人次
+    let dataMap = [{ name: '北京',value: 376.90}, { name: '天津', value: 50.76}, { name: '上海', value: 599.16 }, { name: '重庆', value: 169.72 }, { name: '河北', value: 73.56 }, { name: '河南' , value: 113.76}, { name: '云南' , value: 586.50}, { name: '辽宁', value: 236.93 }, { name: '黑龙江' , value: 99.29}, { name: '湖南' , value: 250.14}, { name: '安徽' , value: 210.74}, { name: '山东' , value: 294.41},
+    { name: '新疆' , value: 25.78}, { name: '江苏' , value: 266.46}, { name: '浙江' , value: 329.83}, { name: '江西' , value: 61.14}, { name: '湖北' , value: 349.94}, { name: '广西' , value: 294.80}, { name: '甘肃' , value: 11.37}, { name: '山西' , value: 49.80}, { name: '内蒙古', value: 186.56 }, { name: '陕西' , value: 329.61}, { name: '吉林', value: 121.11 }, { name: '福建', value: 239.98 }, { name: '贵州' , value: 23.50},
+    { name: '广东' , value: 856.96}, { name: '青海' , value: 4.70}, { name: '西藏' , value: 36.91}, { name: '四川' , value: 313.09}, { name: '宁夏' , value: 3.61}, { name: '海南' , value: 107.91}, { name: '台湾', value: 56.34 }, { name: '香港' , value: 57.34}, { name: '澳门' , value: 67.34}]
 
 // 景区数量
-    let dataMap2 = [{ name: '北京',value: 10 }, { name: '天津', value: 10 }, { name: '上海', value: 10}, { name: '重庆', value: 10 }, { name: '河北', value: 10 }, { name: '河南' , value: 10}, { name: '云南' , value: 10}, { name: '辽宁', value: 10 }, { name: '黑龙江' , value: 10}, { name: '湖南' , value: 10}, { name: '安徽' , value: 10}, { name: '山东' , value: 10},
-        { name: '新疆' , value: 10}, { name: '江苏' , value: 10}, { name: '浙江' , value:10}, { name: '江西' , value: 10}, { name: '湖北' , value: 10}, { name: '广西' , value: 10}, { name: '甘肃' , value: 10}, { name: '山西' , value: 10}, { name: '内蒙古', value: 10 }, { name: '陕西' , value: 10}, { name: '吉林', value: 10}, { name: '福建', value: 10 }, { name: '贵州' , value: 10},
-        { name: '广东' , value: 10}, { name: '青海' , value: 10}, { name: '西藏' , value: 10}, { name: '四川' , value: 10}, { name: '宁夏' , value: 10}, { name: '海南' , value: 10}, { name: '台湾', value:10 }, { name: '香港' , value: 10}, { name: '澳门' , value: 10}]
+
+    let dataMap2 = [{ name: '北京',value: 239 }, { name: '天津', value: 94 }, { name: '上海', value: 113}, { name: '重庆', value: 230 }, { name: '河北', value: 414 }, { name: '河南' , value: 357}, { name: '云南' , value: 233}, { name: '辽宁', value: 340}, { name: '黑龙江' , value: 411}, { name: '湖南' , value: 289}, { name: '安徽' , value: 563}, { name: '山东' , value: 1200},
+        { name: '新疆' , value: 351}, { name: '江苏' , value: 596}, { name: '浙江' , value:572}, { name: '江西' , value: 392}, { name: '湖北' , value: 387}, { name: '广西' , value: 469}, { name: '甘肃' , value: 300}, { name: '山西' , value: 165}, { name: '内蒙古', value: 331 }, { name: '陕西' , value: 392}, { name: '吉林', value: 74}, { name: '福建', value: 367 }, { name: '贵州' , value: 425},
+        { name: '广东' , value: 200}, { name: '青海' , value: 107}, { name: '西藏' , value: 17},, { name: '四川' , value: 441}, { name: '宁夏' , value: 58}, { name: '海南' , value: 56}, { name: '台湾', value:112 }, { name: '香港' , value: 43}, { name: '澳门' , value: 56}]
 
 
 
@@ -90,6 +91,20 @@
     // 绘制图表，准备数据
 
 
+    let ANlist =  document.getElementsByClassName('AN')
+    let ANlist1 = Array.from(ANlist)
+    ANlist1.forEach(function (item){
+        item.style.display = 'none'
+    })
+
+    setTimeout(function (){
+        ANlist1.forEach(function (item){
+            item.style.display = 'block'
+        })
+    },1000)
+
+
+
     let option = {
         tooltip: {
             formatter: function (params) {
@@ -100,14 +115,13 @@
             textStyle: { color: "#fff" } //提示标签字体颜色
         },
         visualMap: {
-            min: 800,
-            max: 50000,
+            min: 1,
+            max: 900,
             text: ['High', 'Low'],
             realtime: false,
             calculable: true,
             inRange: {
-                color: ['#313695', '#4575b4', '#74add1', '#abd9e9', '#e0f3f8', '#ffffbf', '#fee090', '#fdae61', '#f46d43', '#d73027', '#a50026'
-                ]
+                color: ['#ffffbf', '#fee090', '#fdae61', '#f46d43', '#d73027', '#a50026']
             }
         },
         series: [
@@ -155,20 +169,20 @@
     let jing = document.getElementById("jing")
     jing.onclick = function (){
         option.series[0].data = dataMap2
-        option.visualMap.min = 0
-        option.visualMap.max = 50
+        option.visualMap.min = 20
+        option.visualMap.max = 1200
+        option.visualMap.inRange.color = ['#313695', '#4575b4', '#74add1', '#abd9e9', '#e0f3f8'].reverse();  //
        setTimeout(function (){
-           myChart.setOption(option);
            myChart.setOption(option);
        },0)
     }
     let ren = document.getElementById("ren")
     ren.onclick = function (){
         option.series[0].data = dataMap
-        option.visualMap.min = 800
-        option.visualMap.max = 50000
+        option.visualMap.min = 1
+        option.visualMap.max = 900
+        option.visualMap.inRange.color = ['#ffffbf', '#fee090', '#fdae61', '#f46d43', '#d73027', '#a50026'];
         setTimeout(function (){
-            myChart.setOption(option);
             myChart.setOption(option);
         },0)
     }
@@ -298,10 +312,7 @@
     tab.style.display = 'none'
     container.style.display = 'none'
     jingqu.style.display = 'none'
-    // let anini = document.getElementById('animation');
-    // anini.onclick = function (){
-    //     this.src = './provinceHTML/index.html'
-    // }
+
 
     let timer = window.setTimeout(function (){
         // anini.click();
@@ -311,6 +322,9 @@
         tab.style.display = 'block'
         container.style.display = 'block'
         jingqu.style.display = 'block'
+        DBK.src="./images/db.png"
+        BWG.src="./images/jq.png"
+
     },1500)
 
 
