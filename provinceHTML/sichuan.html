@@ -114,7 +114,7 @@
             }
         },
         legend: {
-            data: [ '外国人（万人）', '港澳和台湾同胞（万人）', '国内旅游人数(万人次)', '国际旅游外汇收入(万美元)','国内旅游收入(亿元)']    // 图一小标题
+            data: [ '外国人（万人）', '港澳同胞（万人）', '台湾同胞(万人)', '国际旅游外汇收入(万美元)']    // 图一小标题
         },
         toolbox: {
             feature: {
@@ -141,7 +141,7 @@
         ],
         series: [
             {
-                name: '外国人',       //  小标题
+                name: '外国人（万人）',       //  小标题
                 type: 'line',
                 stack: '总量',
                 smooth: true,
@@ -165,7 +165,7 @@
                 data: [193.44, 219.23, 241.29, 276.47, 308.51]    // 各小标题数据
             },
             {
-                name: '港澳同胞',
+                name: '港澳同胞（万人）',
                 type: 'line',
                 stack: '总量',
                 smooth: true,
@@ -189,7 +189,7 @@
                 data: [43.49, 48.23, 51.21, 49.52, 49.7]
             },
             {
-                name: '台湾同胞',
+                name: '台湾同胞(万人)',
                 type: 'line',
                 stack: '总量',
                 smooth: true,
@@ -512,10 +512,10 @@
                     lineStyle: {
                         width: 1,
                         curveness: .5,
-                        color:'skyblue'
+                        color:'white'
                     },
                     label: {
-                        color: '#9aa8d4',
+                        color: 'gray',
                         position: 'bottom'
                     },
                     leaves: {

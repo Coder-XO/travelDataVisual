@@ -88,7 +88,7 @@ option = {
         },
         legend: {
             left: 'right',
-            data: ['旅游收入(百万美元)', '过夜人数'],
+            data: ['旅游收入', '过夜人数'],
             // selected: {
             //     '二A景区': false,'一A景区': false
             // }
@@ -134,10 +134,11 @@ option = {
             // {name: '一A景区', type: 'bar'},
             // {name: '二A景区', type: 'bar'},
             // {name: '三A景区', type: 'bar'},
-            {name: '过夜人数', type: 'bar'},
-            {name: '旅游收入', type: 'bar'},
+           
+            {name: '旅游收入（百万美元）', type: 'bar'},
+            {name: '过夜人数（万人次）', type: 'bar'},
             {
-                name: 'GDP占比',
+                name: '比例',
                 type: 'pie',
                 center: ['75%', '35%'],
                 radius: '28%',
@@ -147,7 +148,7 @@ option = {
     },
     options: [
         {
-            title : {text: '2000年各省旅游收入与入境过夜人数'},
+            title : {text: '2000年各省国际旅游收入与入境过夜人数'},
             series : [
 
                 {data: dataMap.dataPI['2000']},
@@ -159,7 +160,7 @@ option = {
             ]
         },
         {
-            title : {text: '2005年各省旅游收入与入境过夜人数'},
+            title : {text: '2005年各省国际旅游收入与入境过夜人数'},
             series : [
 
                 {data: dataMap.dataPI['2005']},
@@ -171,7 +172,7 @@ option = {
             ]
         },
         {
-            title : {text: '2010年各省旅游收入与入境过夜人数'},
+            title : {text: '2010年各省国际旅游收入与入境过夜人数'},
             series : [
                 {data: dataMap.dataPI['2010']},
                 {data: dataMap.dataSI['2010']},
@@ -182,7 +183,7 @@ option = {
             ]
         },
         {
-            title : {text: '2018年各省旅游收入与入境过夜人数'},
+            title : {text: '2018年各省国际旅游收入与入境过夜人数'},
             series : [
                 {data: dataMap.dataPI['2018']},
                 {data: dataMap.dataSI['2018']},
@@ -193,7 +194,7 @@ option = {
             ]
         },
         {
-            title : {text: '2019年各省旅游收入与入境过夜人数'},
+            title : {text: '2019年各省国际旅游收入与入境过夜人数'},
             series : [
                 {data: dataMap.dataPI['2019']},
                 {data: dataMap.dataSI['2019']},

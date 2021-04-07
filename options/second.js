@@ -1,5 +1,8 @@
 let option4 = {
     legend: {},
+    title : {
+        top:'7%',
+        text: '各省年总收入(亿元)' },
     tooltip: {
         trigger: 'axis',
         showContent: false
